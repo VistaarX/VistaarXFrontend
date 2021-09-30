@@ -1,7 +1,7 @@
 import React from 'react'
 import Card from '@mui/material/Card';
 import Typography from '@mui/material/Typography';
-import { CardActionArea,CardActions } from '@mui/material'
+import {CardActions } from '@mui/material'
 import { Avatar, Button } from '@material-ui/core';
 import ControlPointIcon from '@mui/icons-material/ControlPoint';
 
