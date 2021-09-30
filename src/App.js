@@ -2,6 +2,7 @@ import React from 'react'
 import LandingPage from './components/LandingPage/LandingPage'
 import Login from './components/Login/Login'
 import {BrowserRouter as Router,Switch,Route} from 'react-router-dom'
+import "./stylesheets/App.css"
 const App = () => {
   return (
     <div>

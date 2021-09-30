@@ -1,0 +1,9 @@
+.prices{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.Content{
+    display: flex;
+    flex-direction: column;
+}
