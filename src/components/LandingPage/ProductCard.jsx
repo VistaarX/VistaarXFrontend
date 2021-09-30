@@ -8,7 +8,7 @@ import '../../stylesheets/LandingPage/ProductCard.css'
 const ProductCard = ({image,company,name,price,discount}) => {
     return (
         <div>
-            <Card sx={{ maxWidth: '130px', maxHeight:'182px'}} 
+            <Card sx={{ minWidth:'100px', maxWidth: '130px', maxHeight:'182px'}} 
             style={{
                 background:"#203341", 
                 color:"white",
@@ -16,41 +16,50 @@ const ProductCard = ({image,company,name,price,discount}) => {
                 border: '1px solid #203341',
                 margin:'10px'
                 }}>
-                <CardActionArea>
+                <CardActionArea style={{position:'relative'}}>
                     <CardMedia
                     component="img"
                     height="101px"
                     image={image}
                     alt={name}
                     />
+                    {/*render discount if disount more than 0 else leave it empty 
+                        this acts as an overlay on the image
+                    */}
+                    {discount>0?
+                            <Typography style={{
+                                fontSize:'12px', 
+                                background:'green', 
+                                borderRadius:'6px',
+                                padding:'5px',
+                                position:'absolute',
+                                top:'2px',
+                                right:'2px'}}>
+                                {discount+"%off"}
+                            </Typography>
+                            :
+                            <Typography>
+                             
+                            </Typography>
+                            }
+
                 </CardActionArea>
                 <CardActions>
                     <div className='Content'>
                         <div className="prices">
                             <span>
-                            <Typography style={{fontSize:'12px', paddingRight:'30px'}}>
-                                Rs.{price}
+                            <Typography style={{fontSize:'13px', justifySelf:'flex', fontWeight:800}}>
+                            <span>&#8377;</span>{price}
                             </Typography>
                             </span>
-                            <Typography style={{fontSize:'12px'}}>
-                                {discount}% off
-                            </Typography>
                         </div>
                         <Typography  fontSize="12px" fontWeight="800" component="div">
-                                {name}
+                                {name.slice(0,20)}
                         </Typography>
                         <Typography fontSize="12px">
-                            {company}
+                            {company.slice(0,20)}
                         </Typography>
                     </div>
-                    {/* <CardContent>
-                        <Typography  variant="h5" component="div">
-                            {name}
-                        </Typography>
-                        <Typography variant="h6">
-                            {company}
-                        </Typography>
-                    </CardContent> */}
                 </CardActions>
             </Card>
         </div>

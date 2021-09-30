@@ -8,7 +8,7 @@ import ControlPointIcon from '@mui/icons-material/ControlPoint';
 const PersonCard = ({image,name,company}) => {
     return (
         <div>
-            <Card sx={{ maxWidth: '130px', maxHeight:'182px'}} elevation='0' disableRipple={true}
+            <Card sx={{ minWidth:'130px',maxWidth: '130px', maxHeight:'182px'}} elevation='0' disableRipple={true}
             style={{
                 display:'flex',
                 flexDirection:'column',
@@ -36,13 +36,11 @@ const PersonCard = ({image,name,company}) => {
                     </Typography>
                     <Button
                     style={{
-                        background:'#3E4347',
+                        background:'#203341',
                         color:'white',
                         borderRadius:'30px',
                         textTransform:'none',
-                        width:'76px',
-                        height:'22px',
-                        fontSize:'10px'
+                        fontWeight:200
                     }}>
                         <ControlPointIcon fontSize='small'/>
                         Connect
