@@ -1,20 +1,18 @@
 import React from 'react'
 import Navbar from './Navbar'
-import SectionHeader from './SectionHeader'
 import '../../stylesheets/LandingPage/LandingPage.css'
 import { useState } from 'react'
-import ProductCard from './ProductCard'
-import { ScrollMenu } from 'react-horizontal-scrolling-menu'
-import PersonCard from './PersonCard'
-import CompanyCard from './CompanyCard'
+import MobileView from './MobileView'
+import DesktopNavbar from './DesktopNavbar'
 const LandingPage = () => {
+    console.log(window.innerWidth)
     const [products,setProducts]=useState([
             {
             image:"https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/ipad-air-select-wifi-gold-202009_FMT_WHH?wid=1000&hei=1000&fmt=jpeg&qlt=95&.v=1598653759000",
             price:"40,000",
             name:"Apple iPad Air",
             company:"XYZ Co.",
-            discount:"80"
+            discount:"80",
         }
     ])
     const [people,setPeople]=useState([
@@ -27,43 +25,54 @@ const LandingPage = () => {
     const [companies,setCompanies]=useState([
         {
             name:'Slack',
-            image:'https://d34u8crftukxnk.cloudfront.net/slackpress/prod/sites/6/2019-01_BrandRefresh_slack-brand-refresh_header-1.png',
+            image:'https://d34u8crftukxnk.cloudfront.net/slackpress/prod/sites/6/2019-01_BrandRefresh_slack-brand-refresh_header-1.png'
             
         }
     ])
+    if(window.innerWidth<=1024){
     return (
         <div className="LandingPage">
             <Navbar/>
-            <SectionHeader title="Products" link="http://www.google.com"/>
-                <ScrollMenu>
-                    {products.slice(0,8).map(product=>
-                        <ProductCard 
-                            image={product.image} 
-                            company={product.company} 
-                            name={product.name}
-                            price={product.price}
-                            discount={product.discount}
-                        />)}
-                </ScrollMenu>
-            <SectionHeader title="People" link="#"/>
-                <ScrollMenu>
-                    {people.slice(0,8).map(person=>
-                        <PersonCard 
-                            image={person.image}
-                            company={person.company}
-                            name={person.name}
-                        />)}
-                </ScrollMenu>
-            <SectionHeader title="Companies" link="#"/>
-                <ScrollMenu>
-                    {companies.slice(0,8).map(company=>
-                        <CompanyCard 
-                        name={company.name} 
-                        image={company.image}
-                        />)}
-                </ScrollMenu>
+            <MobileView products={products} companies={companies} people={people}/> 
         </div>
-    )
+    )}
+    else{
+        return(
+            <div className="LandingPage">
+                <DesktopNavbar/>
+                <div className="Content" style={{display:'flex',flexDirection:'row'}}>
+                    <div style={{
+                        border:'1px solid black',
+                        height:'90vh',
+                        width:'20%',
+                        margin:'10px',
+                        borderRadius:'15px'
+                    }}></div>
+                    {/*=======================================================================*/}
+                    <div style={{
+                        border:'1px solid black',
+                        height:'90vh',
+                        width:'60%',
+                        margin:'10px',
+                        borderRadius:'15px',
+                        padding:'0 5% 0 5%'
+                    }}>
+                       <MobileView products={products} companies={companies} people={people}/>  
+                    </div>
+                    {/*=======================================================================*/}
+                    <div style={{
+                        border:'1px solid black',
+                        height:'90vh',
+                        width:'20%',
+                        margin:'10px',
+                        borderRadius:'15px'
+                    }}>
+
+                    </div>
+                </div>
+            </div>
+        )
+    }
 }
 
 export default LandingPage

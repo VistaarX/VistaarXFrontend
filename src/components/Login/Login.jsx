@@ -1,48 +1,73 @@
+import { Typography } from '@mui/material'
 import React from 'react'
-import "../../stylesheets/Login.css"
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
-//import styled from "styled-components"
-// Put any other imports below so that CSS from your
-// components takes precedence over default styles.
+import LoginFields from './LoginFields'
+import { Button } from '@mui/material'
 
-
- 
-   
 const Login = () => {
+    
     return (
-        <div className="loginbox">
-            <h1>Login</h1>
-            <form className="form">
-                <div className ="form-inner">
-                   
-               
-                   
-                    <input className="email" type="email"   name="email" placeholder="Email"></input>
-                    
-                    <input type="password" name="password" placeholder="Password"></input>
-                    
+        <div className='loginBox' style={{
+            background:'#C4C4C4',
+            height:'100vh',
+            width:'100%',
+            padding:'80px 0',
+            display:'flex',
+            flexDirection:'column',
+            position:'fixed'
+        }}>
+            <Typography style={{paddingBottom:'30px',paddingLeft:'10px'}} fontSize="30px" fontWeight="800">
+                Login
+            </Typography>
+            <LoginFields/>
+            {/* <Button style={{
+                textTransform:'none',
+                width:'10%',
+                alignSelf:'flex-end',
+                color:'#203341',
+                display:'inline'
+            }}>
+                Forgot Password?
+            </Button>  */}
+            <Button style={{
+                background:"#203341",
+                color:'white',
+                textTransform:'none',
+                width: '255px',
+                height: '46px',
+                alignSelf:'center',
+                fontWeight:'600',
+                marginBottom:'100px'
+            }}>
+                Login
+            </Button>
+            
+            <Typography style={{
+                fontWeight: '300',
+                fontSize: '18px',
+                lineHeight: '27px',
+                alignSelf:'center',
+                paddingBottom:'20px'
+            }}>
+                Dont have an account?
+            </Typography>
+            <Button style={{
+                background:"#203341",
+                color:'white',
+                textTransform:'none',
+                width: '255px',
+                height: '46px',
+                alignSelf:'center',
+                fontWeight:'600'
+            }}>
+                Create new Account
+            </Button>
+            
 
-
-                    
-                    <a href="">Forgot password?</a>
-                    <input class="btn" type="button" value="login"></input>
-
-                </div>
-
-                <div className="form-outter">
-                <a href="">Don't have an Account</a>
-                <input class="btn" type="button" value="Create New Account"></input>
-                </div>
-
-                
-            </form>
+            
         </div>
-
-       
     )
 }
 
-
-
 export default Login
+
 
