@@ -6,7 +6,7 @@ import MobileView from './MobileView'
 import DesktopNavbar from './DesktopNavbar'
 const LandingPage = () => {
     console.log(window.innerWidth)
-    const [products,setProducts]=useState([
+    const [products, setProducts]=useState([
             {
             image:"https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/ipad-air-select-wifi-gold-202009_FMT_WHH?wid=1000&hei=1000&fmt=jpeg&qlt=95&.v=1598653759000",
             price:"40,000",
@@ -15,20 +15,23 @@ const LandingPage = () => {
             discount:"80",
         }
     ])
-    const [people,setPeople]=useState([
+
+    const [people, setPeople]=useState([
         {
             image:"https://vit.ac.in/sites/default/files/images/news/chan11.jpg",
             name:"Person1",
             company:"ABC Co."
         }
     ])
-    const [companies,setCompanies]=useState([
+
+    const [companies, setCompanies]=useState([
         {
             name:'Slack',
             image:'https://d34u8crftukxnk.cloudfront.net/slackpress/prod/sites/6/2019-01_BrandRefresh_slack-brand-refresh_header-1.png'
             
         }
     ])
+    
     if(window.innerWidth<=1024){
     return (
         <div className="LandingPage">

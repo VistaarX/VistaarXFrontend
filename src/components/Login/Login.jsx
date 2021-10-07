@@ -2,41 +2,28 @@ import { Typography } from '@mui/material'
 import React from 'react'
 import LoginFields from './LoginFields'
 import { Button } from '@mui/material'
+import { Link } from 'react-router-dom'
 
 const Login = () => {
-    
+    if (window.innerWidth<=1024) 
     return (
-        <div className='loginBox' style={{
-            background:'#C4C4C4',
-            height:'100vh',
-            width:'100%',
-            padding:'80px 0',
-            display:'flex',
-            flexDirection:'column',
-            position:'fixed'
-        }}>
-            <Typography style={{paddingBottom:'30px',paddingLeft:'10px'}} fontSize="30px" fontWeight="800">
+        <div className='loginBox'>
+            <Typography style={{paddingBottom:'30px',paddingLeft:'10px', textAlign:'center', marginTop: '46px'}} fontSize="30px" fontWeight="800">
                 Login
             </Typography>
-            <LoginFields/>
-            {/* <Button style={{
-                textTransform:'none',
-                width:'10%',
-                alignSelf:'flex-end',
-                color:'#203341',
-                display:'inline'
-            }}>
-                Forgot Password?
-            </Button>  */}
+
+            <LoginFields marginLeft='5%' width='90%'/>
+
             <Button style={{
                 background:"#203341",
                 color:'white',
                 textTransform:'none',
-                width: '255px',
+                width: '90%',
                 height: '46px',
                 alignSelf:'center',
                 fontWeight:'600',
-                marginBottom:'100px'
+                marginBottom:'46px',
+                marginLeft: '5%'
             }}>
                 Login
             </Button>
@@ -46,24 +33,84 @@ const Login = () => {
                 fontSize: '18px',
                 lineHeight: '27px',
                 alignSelf:'center',
-                paddingBottom:'20px'
+                marginBottom: '46px',
+                textAlign: 'center'
             }}>
-                Dont have an account?
+                OR
             </Typography>
+
             <Button style={{
                 background:"#203341",
                 color:'white',
                 textTransform:'none',
-                width: '255px',
+                width: '90%',
                 height: '46px',
                 alignSelf:'center',
-                fontWeight:'600'
+                fontWeight:'600',
+                marginLeft: '5%'
             }}>
                 Create new Account
             </Button>
-            
+        </div>
+    )
 
-            
+    else return (
+        <div className='loginBox'>
+            <Typography style={{
+                paddingBottom:'30px',
+                paddingLeft: '10px', 
+                textAlign:'center', 
+                marginTop: '46px', 
+                boxSizing: 'border-box',
+                width: '45%',
+                marginLeft: '50%'
+            }} fontSize="30px" fontWeight="800">
+                Login
+            </Typography>
+
+            <LoginFields marginLeft='50%' width='45%'/>
+
+            <Button style={{
+                background:"#203341",
+                color:'white',
+                textTransform:'none',
+                width: '45%',
+                height: '46px',
+                alignSelf:'center',
+                fontWeight:'600',
+                marginBottom:'46px',
+                marginLeft: '50%'
+            }}>
+                Login
+            </Button>
+
+            <Typography style={{
+                fontWeight: '300',
+                fontSize: '18px',
+                lineHeight: '27px',
+                alignSelf:'center',
+                marginBottom: '46px',
+                textAlign: 'center',
+                width: '45%',
+                boxSizing: 'border-box',
+                marginLeft: '50%'
+            }}>
+                OR
+            </Typography>
+
+          
+            <Button component={Link} to="/signup" style={{
+                background:"#203341",
+                color:'white',
+                textTransform:'none',
+                width: '45%',
+                height: '46px',
+                alignSelf:'center',
+                fontWeight:'600',
+                marginLeft: '50%'
+            }}> 
+                Create new Account
+            </Button>
         </div>
     )
 }

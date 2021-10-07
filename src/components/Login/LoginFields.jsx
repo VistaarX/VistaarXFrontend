@@ -7,7 +7,7 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { Lock } from '@material-ui/icons';
 import { Button } from '@mui/material';
-const LoginFields = () => {
+const LoginFields = ({ marginLeft, width }) => {
     const [values, setValues] = React.useState({
         password: '',
         showPassword: false,
@@ -27,13 +27,15 @@ const LoginFields = () => {
       const handleMouseDownPassword = (event) => {
         event.preventDefault();
       };
+
     return (
         <div>
             <OutlinedInput 
             style={{
-                width:"90%",
-                background:'white',
-                margin:'10px'
+                width: width,
+                background: 'white',
+                marginLeft: marginLeft,
+                boxSizing:'border-box'
             }}
             placeholder="Email"
             startAdornment={
@@ -41,13 +43,14 @@ const LoginFields = () => {
                     <AlternateEmailIcon/>
                 </InputAdornment>
             }>
-                
             </OutlinedInput>
+          
           <OutlinedInput
             style={{
-                    width:"90%",
+                    width: width,
                     background:'white',
-                    margin:'10px'
+                    marginTop: '10px',
+                    marginLeft: marginLeft
                 }}
             variant="filled"
             type={values.showPassword ? 'text' : 'password'}
@@ -73,16 +76,18 @@ const LoginFields = () => {
             }
             label="Password"
           />
+          
           <Button style={{
                 textTransform:'none',
-                width:'200px',
-                alignSelf:'flex-end',
+                paddingRight: '5%',
                 color:'#203341',
-                marginBottom:'20px'
-            }}>
+                marginBottom:'20px',
+                float: 'right',
+                display: 'block',
+                textAlign: 'right'
+            }} className='forgotPassword'>
                 Forgot Password?
             </Button>
-          
         </div>
     )
 }
