@@ -8,14 +8,14 @@ const Login = () => {
     if (window.innerWidth<=1024) 
     return (
         <div className='loginBox'>
-            <Typography style={{paddingBottom:'30px',paddingLeft:'10px', textAlign:'center', marginTop: '46px'}} fontSize="30px" fontWeight="800">
+            <Typography style={{paddingBottom:'30px', textAlign:'center', marginTop: '46px', boxSizing: 'border-box'}} fontSize="30px" fontWeight="800">
                 Login
             </Typography>
 
             <LoginFields marginLeft='5%' width='90%'/>
 
             <Button style={{
-                background:"#203341",
+                background:"#0A66C2",
                 color:'white',
                 textTransform:'none',
                 width: '90%',
@@ -40,7 +40,7 @@ const Login = () => {
             </Typography>
 
             <Button style={{
-                background:"#203341",
+                background:"#0A66C2",
                 color:'white',
                 textTransform:'none',
                 width: '90%',
@@ -58,7 +58,6 @@ const Login = () => {
         <div className='loginBox'>
             <Typography style={{
                 paddingBottom:'30px',
-                paddingLeft: '10px', 
                 textAlign:'center', 
                 marginTop: '46px', 
                 boxSizing: 'border-box',
@@ -71,7 +70,7 @@ const Login = () => {
             <LoginFields marginLeft='50%' width='45%'/>
 
             <Button style={{
-                background:"#203341",
+                background:"#0A66C2",
                 color:'white',
                 textTransform:'none',
                 width: '45%',
@@ -100,7 +99,7 @@ const Login = () => {
 
           
             <Button component={Link} to="/signup" style={{
-                background:"#203341",
+                background:"#0A66C2",
                 color:'white',
                 textTransform:'none',
                 width: '45%',

@@ -1,0 +1,13 @@
+.signupBox p {
+    font-weight: 800;
+    font-size: 16px;
+}
+
+.signupBox .signupFields {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.signupBox .loginText {
+    text-align: center;
+}
