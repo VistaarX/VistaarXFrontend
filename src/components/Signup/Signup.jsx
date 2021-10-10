@@ -9,9 +9,6 @@ const Signup = () => {
     if (window.innerWidth<=1024) 
     return (
         <div className='signupBox'>
-            <Typography style={{paddingBottom:'30px',paddingLeft:'10px', textAlign:'center', marginTop: '46px'}} fontSize="30px" fontWeight="800">
-                Sign Up
-            </Typography>
 
             <SignupFields marginLeft='5%' width='90%'/>
 
@@ -48,17 +45,6 @@ const Signup = () => {
 
     else return (
         <div className='signupBox'>
-            <Typography style={{
-                paddingBottom:'30px',
-                paddingLeft: '10px', 
-                textAlign:'center', 
-                marginTop: '46px', 
-                boxSizing: 'border-box',
-                fontSize: '48px'
-            }} fontWeight="800">
-                <Typography style={{fontWeight: '500', fontSize: '30px', display: 'inline-block'}}>Welcome to </Typography>&#160;Vistaar<Typography style={{color: '#0A66C2', fontWeight: '800', display:'inline-block', fontSize: '48px'}}>X</Typography>
-            </Typography>
-
             <SignupFields marginLeft='50%' width='45%'/>
             <br/>
             <p className='loginText'>

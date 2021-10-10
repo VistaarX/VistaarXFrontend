@@ -9,152 +9,71 @@ import { Lock } from '@material-ui/icons';
 import { Button } from '@mui/material';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
+import Page1 from './Page1.jsx';
+import Page2 from './Page2.jsx';
+import Page3 from './Page3.jsx';
+import Page4 from './Page4.jsx';
 
 
 const SignupFields = ({ marginLeft, width }) => {
-    const [page, setPage] = React.useState(1)
+  const [page, setPage] = React.useState(1)
 
-    const [values, setValues] = React.useState({
-        gender: 'Male',
-        password: '',
-        showPassword: false,
-      });
-    
-      const handleChange = (prop) => (event) => {
-        setValues({ ...values, [prop]: event.target.value });
-      };
-    
-      const handleClickShowPassword = () => {
-        setValues({
-          ...values,
-          showPassword: !values.showPassword,
-        });
-      };
-    
-      const handleMouseDownPassword = (event) => {
-        event.preventDefault();
-      };
+  const [values, setValues] = React.useState({
+    gender: 'Male',
+    password: '',
+    showPassword: false,
+  });
 
-    return (
-        <form className='signupFields'>
-            <p>Full Name</p>
-            <OutlinedInput 
-            style={{
-                width: '100%',
-                background: 'white',
-                boxSizing:'border-box'
-            }}
-            placeholder="John Snow" required>
-            </OutlinedInput>
-            <br/><br/>
+  const wantToOptions = ['Join an Existing Business', 'Create Business Profile']
 
-            <p>Email</p>
-            <OutlinedInput 
-            style={{
-                width: '100%',
-                background: 'white',
-                boxSizing:'border-box'
-            }}
-            placeholder="Email"
-            startAdornment={
-                <InputAdornment position="start">
-                    <AlternateEmailIcon/>
-                </InputAdornment>
-            } required>
-            </OutlinedInput>
-            <br/><br/>
+  const [wantTo, setWantTo] = React.useState(wantToOptions[1])
 
-            <p>Phone</p>
-            <OutlinedInput 
-            style={{
-                width: '100%',
-                background: 'white',
-                boxSizing:'border-box'
-            }}
-            startAdornment={
-                <InputAdornment position="start">
-                    +91
-                </InputAdornment>
-            }
-            inputProps={{ pattern: "[0-9]{10}" }} required>
-            </OutlinedInput>
-            <br/><br/>
+  const userTypes = ['Manufacturer', 'Distributor', 'Retailer']
 
-            <p>Password</p>
-            <OutlinedInput
-            style={{
-                    width: '100%',
-                    background:'white'
-                }}
-            variant="filled"
-            type={values.showPassword ? 'text' : 'password'}
-            value={values.password}
-            onChange={handleChange('password')}
-            placeholder="Password"
-            startAdornment={
-                <InputAdornment position='start'>
-                    <Lock/>
-                </InputAdornment>
-            }
-            endAdornment={
-              <InputAdornment position="end">
-                <IconButton
-                  aria-label="toggle password visibility"
-                  onClick={handleClickShowPassword}
-                  onMouseDown={handleMouseDownPassword}
-                  edge="end"
-                >
-                  {values.showPassword ? <VisibilityOff /> : <Visibility />}
-                </IconButton>
-              </InputAdornment>
-            }
-            label="Password"
-            required
-          />
-          <br/><br/>
+  const [userType, setUserType] = React.useState(userTypes[0])
 
-          {/* <Button style={{
-                textTransform:'none',
-                paddingRight: '5%',
-                color:'#203341',
-                marginBottom:'20px',
-                float: 'right',
-                display: 'block',
-                textAlign: 'right'
-            }} className='forgotPassword'>
-                Forgot Password?
-            </Button> */}
+  const handleChange = (prop) => (event) => {
+    setValues({ ...values, [prop]: event.target.value });
+  };
 
-            <p>Gender</p>
-            <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                label="Age"
-                value={values.gender}
-                onChange={handleChange('gender')}
-                style={{width: '100%'}}
-                >
-                <MenuItem value={'Male'}>Male</MenuItem>
-                <MenuItem value={'Female'}>Female</MenuItem>
-            </Select>
-            <br/><br/>
+  const handleClickShowPassword = () => {
+    setValues({
+      ...values,
+      showPassword: !values.showPassword,
+    });
+  };
 
-            <Button style={{
-                background:"#0A66C2",
-                color:'white',
-                textTransform:'none',
-                width: '100%',
-                alignSelf:'center',
-                fontWeight:'500',
-                fontSize: '30px',
-                boxSizing: 'border-box',
-                paddingTop: '10px'
-            }}
-            onClick={()=>setPage(page+1)}>
-                Next
-            </Button>
-        </form>
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
+
+  const returnPage = page => {
+    if (page === 1) return (
+      <Page1 values={values} setPage={setPage} handleChange={handleChange}
+        handleClickShowPassword={handleClickShowPassword} handleMouseDownPassword={handleMouseDownPassword} page={page} />
     )
+    else if (page === 2) return (
+      <Page2 values={values} setPage={setPage} handleChange={handleChange}
+        handleClickShowPassword={handleClickShowPassword} handleMouseDownPassword={handleMouseDownPassword} page={page} 
+        wantToOptions={wantToOptions} wantTo={wantTo} setWantTo={setWantTo}/>
+    )
+    else if (page === 3) return (
+      <Page3 values={values} setPage={setPage} handleChange={handleChange}
+        handleClickShowPassword={handleClickShowPassword} handleMouseDownPassword={handleMouseDownPassword} 
+        page={page} userTypes={userTypes} setUserType={setUserType} wantTo={wantTo} wantToOptions={wantToOptions} />
+    )
+    else if (page === 4) return (
+      <Page4 values={values} setPage={setPage} handleChange={handleChange}
+        handleClickShowPassword={handleClickShowPassword} handleMouseDownPassword={handleMouseDownPassword} 
+        page={page} userTypes={userTypes} setUserType={setUserType}/>
+    )
+  }
+
+  return (
+    <form className='signupFields'>
+      {returnPage(page)}
+    </form>
+  )
 }
 
 export default SignupFields

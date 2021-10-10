@@ -31,3 +31,4 @@ export default App
 //Add handle change functions to onChange event listeners of input fields in both login and sign up forms
 //Manage state for form values
 //Post data to API
+//When moving to next page in sign up make sure all the fields are filled

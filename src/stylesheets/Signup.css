@@ -11,3 +11,24 @@
 .signupBox .loginText {
     text-align: center;
 }
+
+.signupBox .wantToOptions {
+    display: inline-block;
+}
+
+.signupBox .page2 {
+    width: 100%;
+    display: flex;
+    padding-bottom: calc(12px + 4em);
+    box-sizing: border-box;
+    height: 50vh;
+}
+
+.signupBox .page2 div {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
