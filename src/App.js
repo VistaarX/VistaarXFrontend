@@ -4,10 +4,13 @@ import Login from './components/Login/Login'
 import Signup from './components/Signup/Signup'
 import {BrowserRouter as Router,Switch,Route} from 'react-router-dom'
 import "./stylesheets/App.css"
+import Navbar from './components/Navbar/Navbar'
+
 const App = () => {
   return (
     <div>
       <Router className="App">
+      <Navbar />
       <Switch>
         <Route path="/login" exact>
           <Login/>
