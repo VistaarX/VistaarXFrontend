@@ -6,11 +6,13 @@ import { Link } from 'react-router-dom'
 import '../../stylesheets/Signup.css'
 
 const Signup = () => {
+    const userTypes = ['Manufacturer', 'Distributor', 'Retailer']
+
     if (window.innerWidth<=1024) 
     return (
         <div className='signupBox'>
 
-            <SignupFields marginLeft='5%' width='90%'/>
+            <SignupFields marginLeft='5%' width='90%' userTypes={userTypes}/>
 
             <Button style={{
                 background:"#0A66C2",
@@ -38,14 +40,14 @@ const Signup = () => {
             </Typography>
 
             <p>
-                Want to Log in? <Link to='\login' style={{color: '#0A66C2'}}>Login</Link>
+                Want to Log in? <Link to='/login' style={{color: '#0A66C2'}}>Login</Link>
             </p>
         </div>
     )
 
     else return (
         <div className='signupBox'>
-            <SignupFields marginLeft='50%' width='45%'/>
+            <SignupFields marginLeft='50%' width='45%' userTypes={userTypes}/>
             <br/>
             <p className='loginText'>
                 Want to Log in? <Link to='/login' style={{color: '#0A66C2'}}>Login</Link>

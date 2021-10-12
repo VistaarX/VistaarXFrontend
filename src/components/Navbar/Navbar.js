@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom'
 
 function Navbar() {
     const linkStyle = { textDecoration: 'none' }
+    
     return (
         <div className="container">
             <nav>
@@ -18,9 +19,9 @@ function Navbar() {
                 <div className="nav_body nav_icons">
                     <Link to='/' style={linkStyle}><div className="icons"><ImHome3 size={22} />Home</div></Link>
                     <Link to='/network' style={linkStyle}><div className="icons"><FaUserFriends size={22} color="#3665dd"/>Network</div></Link>
-                    <div className="icons"><FaPlusSquare size={22}/>Post</div>
-                    <div className="icons"><FaBell size={22}/>Notification</div>
-                    <div className="icons"><FaCircle size={22}/>User</div>
+                    <div className="icons"><FaPlusSquare size={22} color="#3665dd"/>Post</div>
+                    <div className="icons"><FaBell size={22} color="#3665dd"/>Notification</div>
+                    <div className="icons"><FaCircle size={22} color="#3665dd"/>User</div>
                 </div>
                 <div className="nav_body nav_search">
                     <div className="searchBox"><FaSearch size={20}/><input type="search" placeholder='Search'/></div>

@@ -15,7 +15,7 @@ import Page3 from './Page3.jsx';
 import Page4 from './Page4.jsx';
 
 
-const SignupFields = ({ marginLeft, width }) => {
+const SignupFields = ({ marginLeft, width, userTypes }) => {
   const [page, setPage] = React.useState(1)
 
   const [values, setValues] = React.useState({
@@ -28,9 +28,9 @@ const SignupFields = ({ marginLeft, width }) => {
 
   const [wantTo, setWantTo] = React.useState(wantToOptions[1])
 
-  const userTypes = ['Manufacturer', 'Distributor', 'Retailer']
+  
 
-  const [userType, setUserType] = React.useState(userTypes[0])
+  const [userType, setUserType] = React.useState(userTypes[1])
 
   const handleChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
@@ -60,12 +60,12 @@ const SignupFields = ({ marginLeft, width }) => {
     else if (page === 3) return (
       <Page3 values={values} setPage={setPage} handleChange={handleChange}
         handleClickShowPassword={handleClickShowPassword} handleMouseDownPassword={handleMouseDownPassword} 
-        page={page} userTypes={userTypes} setUserType={setUserType} wantTo={wantTo} wantToOptions={wantToOptions} />
+        page={page} userTypes={userTypes} setUserType={setUserType} wantTo={wantTo} wantToOptions={wantToOptions} userType={userType}/>
     )
     else if (page === 4) return (
       <Page4 values={values} setPage={setPage} handleChange={handleChange}
         handleClickShowPassword={handleClickShowPassword} handleMouseDownPassword={handleMouseDownPassword} 
-        page={page} userTypes={userTypes} setUserType={setUserType}/>
+        page={page} userTypes={userTypes} setUserType={setUserType} userType={userType}/>
     )
   }
 

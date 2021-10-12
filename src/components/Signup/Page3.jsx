@@ -7,7 +7,14 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 
 const Page3 = ({ marginLeft, width, values, handleChange, setPage, handleClickShowPassword, 
-    handleMouseDownPassword, page, userTypes, setUserTypes, wantTo, wantToOptions }) => {
+    handleMouseDownPassword, page, userType, userTypes, setUserType, wantTo, wantToOptions }) => {
+    const handleUserTypeChange = event => {
+        console.log(event.target.value)
+        console.log(userType)
+        setUserType(event.target.value)
+        console.log(event.target.value)
+        console.log(userType)
+    }
     if(wantTo===wantToOptions[1]) return (
         <React.Fragment>
             <Typography style={{
@@ -23,14 +30,15 @@ const Page3 = ({ marginLeft, width, values, handleChange, setPage, handleClickSh
 
             <FormControl component="fieldset" style={{margin: '0 auto', width: '100%'}}>
                 <RadioGroup
-                    aria-label="gender"
-                    defaultValue="female"
+                    aria-label="userType"
+                    value={userType}
                     name="radio-buttons-group"
                     style={{margin: '0 auto', boxShadow: '0 10px 10px rgb(0 0 0 / 10%)', padding: '70px', marginBottom: '20px'}}
+                    onChange={ handleUserTypeChange }
                 >
-                    <FormControlLabel value="manufacturer" control={<Radio style={{color: 'black'}}/>} label="Manufacturer" />
-                    <FormControlLabel value="distributor" control={<Radio style={{color: 'black'}}/>} label="Distributor" />
-                    <FormControlLabel value="retailer" control={<Radio style={{color: 'black'}}/>} label="Retailer" />
+                    <FormControlLabel value={userTypes[0]} control={<Radio style={{color: 'black'}}/>} label={userTypes[0]} />
+                    <FormControlLabel value={userTypes[1]} control={<Radio style={{color: 'black'}}/>} label={userTypes[1]} />
+                    <FormControlLabel value={userTypes[2]} control={<Radio style={{color: 'black'}}/>} label={userTypes[2]} />
                 </RadioGroup>
             </FormControl>
 

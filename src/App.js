@@ -30,8 +30,7 @@ const App = () => {
 export default App
 
 //TODO: Add SVG to login page
-//TODO: Vertically align login form
-//Add handle change functions to onChange event listeners of input fields in both login and sign up forms
-//Manage state for form values
-//Post data to API
-//When moving to next page in sign up make sure all the fields are filled
+//TODO: Add handle change functions to onChange event listeners of input fields in both login and sign up forms
+//TODO: Manage state for form values
+//TODO: Post data to API
+//TODO: When moving to next page in sign up make sure all the fields are filled
