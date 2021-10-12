@@ -8,34 +8,12 @@ import Select from '@mui/material/Select';
 import { Typography } from '@mui/material';
 import TextField from '@mui/material/TextField';
 
-const DistributorForm = ({ marginLeft, width, values, handleChange, setPage, page, userType, heading }) => {
+const RetailerForm = ({ marginLeft, width, values, handleChange, setPage, page, userType, heading }) => {
     return (
         <React.Fragment>
             {heading()}
 
-            <p>Name of the Company</p>
-            <OutlinedInput
-                style={{
-                    width: '100%',
-                    background: 'white',
-                    boxSizing: 'border-box'
-                }}
-                placeholder="Ray Ban" required>
-            </OutlinedInput>
-            <br /><br />
-
-            <p>Name of the Owner</p>
-            <OutlinedInput
-                style={{
-                    width: '100%',
-                    background: 'white',
-                    boxSizing: 'border-box'
-                }}
-                placeholder="John Snow" required>
-            </OutlinedInput>
-            <br /><br />
-
-            <p>Product Category</p>
+            <p>Name of the Shop</p>
             <OutlinedInput
                 style={{
                     width: '100%',
@@ -57,14 +35,14 @@ const DistributorForm = ({ marginLeft, width, values, handleChange, setPage, pag
             </OutlinedInput>
             <br /><br />
 
-            <p>Annual Turnover</p>
+            <p>Product Category</p>
             <OutlinedInput
                 style={{
                     width: '100%',
                     background: 'white',
                     boxSizing: 'border-box'
                 }}
-                placeholder="Rs. 1.87 Cr" required>
+                placeholder="Ray Ban" required>
             </OutlinedInput>
             <br /><br />
 
@@ -100,28 +78,6 @@ const DistributorForm = ({ marginLeft, width, values, handleChange, setPage, pag
             </OutlinedInput>
             <br /><br />
 
-            <p>Legal Status</p>
-            <OutlinedInput
-                style={{
-                    width: '100%',
-                    background: 'white',
-                    boxSizing: 'border-box'
-                }}
-                placeholder="Rs. 1.87 Cr" required>
-            </OutlinedInput>
-            <br /><br />
-
-            <p>Target Areas</p>
-            <OutlinedInput
-                style={{
-                    width: '100%',
-                    background: 'white',
-                    boxSizing: 'border-box'
-                }}
-                placeholder="Rs. 1.87 Cr" required>
-            </OutlinedInput>
-            <br /><br />
-
             {/* <p>Gender</p>
             <Select
                 labelId="demo-simple-select-label"
@@ -145,7 +101,7 @@ const DistributorForm = ({ marginLeft, width, values, handleChange, setPage, pag
             />
             <br /><br />
             
-            <p>About the Firm</p>
+            <p>About the Shop</p>
             <TextField
                 multiline
                 rows={4}
@@ -172,4 +128,4 @@ const DistributorForm = ({ marginLeft, width, values, handleChange, setPage, pag
     )
 }
 
-export default DistributorForm
+export default RetailerForm
