@@ -13,6 +13,7 @@ import { Typography } from '@mui/material';
 
 
 const Page1 = ({ marginLeft, width, values, handleChange, setPage, handleClickShowPassword, handleMouseDownPassword, page }) => {
+    
     return (
         <React.Fragment>
             <Typography style={{
@@ -33,6 +34,7 @@ const Page1 = ({ marginLeft, width, values, handleChange, setPage, handleClickSh
                     background: 'white',
                     boxSizing: 'border-box'
                 }}
+                onChange={handleChange('name')}
                 placeholder="John Snow" required>
             </OutlinedInput>
             <br /><br />
@@ -44,6 +46,7 @@ const Page1 = ({ marginLeft, width, values, handleChange, setPage, handleClickSh
                     background: 'white',
                     boxSizing: 'border-box'
                 }}
+                onChange={handleChange('email')}
                 placeholder="Email"
                 startAdornment={
                     <InputAdornment position="start">
@@ -65,6 +68,7 @@ const Page1 = ({ marginLeft, width, values, handleChange, setPage, handleClickSh
                         +91
                     </InputAdornment>
                 }
+                onChange={handleChange('phone')}
                 inputProps={{ pattern: "[0-9]{10}" }} required>
             </OutlinedInput>
             <br /><br />
@@ -127,7 +131,7 @@ const Page1 = ({ marginLeft, width, values, handleChange, setPage, handleClickSh
                 boxSizing: 'border-box',
                 paddingTop: '10px'
             }}
-                onClick={() => setPage(page + 1)}>
+                type="submit">
                 Next
             </Button>
         </React.Fragment>

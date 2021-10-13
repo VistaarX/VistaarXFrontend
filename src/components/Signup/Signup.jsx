@@ -7,39 +7,65 @@ import '../../stylesheets/Signup.css'
 
 const Signup = () => {
     const userTypes = ['Manufacturer', 'Distributor', 'Retailer']
+    const wantToOptions = ['Join an Existing Business', 'Create Business Profile']
+
+    const [page, setPage] = React.useState(1)
+    const [wantTo, setWantTo] = React.useState(wantToOptions[1])
+    const [userType, setUserType] = React.useState(userTypes[1])
+    const [values, setValues] = React.useState({
+        name: '',
+        email: '',
+        phone: '',
+        password: '',
+        gender: 'Male',
+        showPassword: false,
+        wantTo: wantToOptions[1],
+        userType: userType,
+        page4: [{
+            formName: 'ManufacturerForm'
+        }, {
+            formName: 'DistributorForm'
+        }, {
+            formName: 'RetailerForm'
+        }]
+      });
+
+    React.useEffect(()=>{
+      setValues({...values, "wantTo": wantTo})
+    }, [wantTo])
+  
+    const handleChange = (prop) => (event) => {
+      setValues({ ...values, [prop]: event.target.value });
+    };
+  
+    const handleClickShowPassword = () => {
+      setValues({
+        ...values,
+        showPassword: !values.showPassword,
+      });
+    };
+  
+    const handleMouseDownPassword = (event) => {
+      event.preventDefault();
+    };
+  
+    const onSubmit = event => {
+      event.preventDefault()
+      setPage(page+1)
+      console.log(`Signup.jsx: onSubmit called, values:`)
+      console.log(values)
+    }
 
     if (window.innerWidth<=1024) 
     return (
         <div className='signupBox'>
 
-            <SignupFields marginLeft='5%' width='90%' userTypes={userTypes}/>
+            <SignupFields marginLeft='5%' width='90%' userTypes={userTypes} onSubmit={onSubmit} values={values} 
+            setValues={setValues} page={page} handleChange={handleChange} handleClickShowPassword={handleClickShowPassword}
+            handleMouseDownPassword={handleMouseDownPassword} wantToOptions={wantToOptions} setWantTo={setWantTo} wantTo={wantTo}
+            userType={userType} setUserType={setUserType}/>
 
-            <Button style={{
-                background:"#0A66C2",
-                color:'white',
-                textTransform:'none',
-                width: '90%',
-                height: '46px',
-                alignSelf:'center',
-                fontWeight:'600',
-                marginBottom:'46px',
-                marginLeft: '5%'
-            }}>
-                Sign Up
-            </Button>
-            
-            <Typography style={{
-                fontWeight: '300',
-                fontSize: '18px',
-                lineHeight: '27px',
-                alignSelf:'center',
-                marginBottom: '46px',
-                textAlign: 'center'
-            }}>
-                OR
-            </Typography>
-
-            <p>
+            <p className='loginText'>
                 Want to Log in? <Link to='/login' style={{color: '#0A66C2'}}>Login</Link>
             </p>
         </div>
@@ -47,7 +73,10 @@ const Signup = () => {
 
     else return (
         <div className='signupBox'>
-            <SignupFields marginLeft='50%' width='45%' userTypes={userTypes}/>
+            <SignupFields marginLeft='5%' width='90%' userTypes={userTypes} onSubmit={onSubmit} values={values} 
+            setValues={setValues} page={page} handleChange={handleChange} handleClickShowPassword={handleClickShowPassword}
+            handleMouseDownPassword={handleMouseDownPassword} wantToOptions={wantToOptions} setWantTo={setWantTo} wantTo={wantTo}
+            userType={userType} setUserType={setUserType} userTypes={userTypes}/>
             <br/>
             <p className='loginText'>
                 Want to Log in? <Link to='/login' style={{color: '#0A66C2'}}>Login</Link>

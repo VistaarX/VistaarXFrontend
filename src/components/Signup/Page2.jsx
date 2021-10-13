@@ -11,8 +11,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import { Typography } from '@mui/material';
 
-const Page1 = ({ marginLeft, width, values, handleChange, setPage, 
-    handleClickShowPassword, handleMouseDownPassword, page, wantTo, setWantTo, wantToOptions }) => {
+const Page2 = ({ marginLeft, width, wantTo, setWantTo, wantToOptions }) => {
 
     let style1 = {boxShadow: '0 10px 10px rgb(0 0 0 / 10%)'}
     let style2 = {boxShadow: '0 10px 10px rgb(0 0 0 / 10%)'}
@@ -76,11 +75,11 @@ const Page1 = ({ marginLeft, width, values, handleChange, setPage,
                 boxSizing: 'border-box',
                 paddingTop: '10px'
             }}
-                onClick={() => setPage(page + 1)}>
+                type="submit">
                 Next
             </Button>
         </React.Fragment>
     )
 }
 
-export default Page1
+export default Page2

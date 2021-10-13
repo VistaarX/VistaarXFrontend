@@ -107,7 +107,7 @@ const DistributorForm = ({ marginLeft, width, values, handleChange, setPage, pag
                     background: 'white',
                     boxSizing: 'border-box'
                 }}
-                placeholder="Rs. 1.87 Cr" required>
+                placeholder="@#$%" required>
             </OutlinedInput>
             <br /><br />
 
@@ -118,7 +118,7 @@ const DistributorForm = ({ marginLeft, width, values, handleChange, setPage, pag
                     background: 'white',
                     boxSizing: 'border-box'
                 }}
-                placeholder="Rs. 1.87 Cr" required>
+                placeholder="@#$%" required>
             </OutlinedInput>
             <br /><br />
 

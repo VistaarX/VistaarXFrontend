@@ -8,13 +8,11 @@ import FormControl from '@mui/material/FormControl';
 
 const Page3 = ({ marginLeft, width, values, handleChange, setPage, handleClickShowPassword, 
     handleMouseDownPassword, page, userType, userTypes, setUserType, wantTo, wantToOptions }) => {
+
     const handleUserTypeChange = event => {
-        console.log(event.target.value)
-        console.log(userType)
         setUserType(event.target.value)
-        console.log(event.target.value)
-        console.log(userType)
     }
+
     if(wantTo===wantToOptions[1]) return (
         <React.Fragment>
             <Typography style={{
@@ -52,8 +50,7 @@ const Page3 = ({ marginLeft, width, values, handleChange, setPage, handleClickSh
                 fontSize: '30px',
                 boxSizing: 'border-box',
                 paddingTop: '10px'
-            }}
-                onClick={() => setPage(page + 1)}>
+            }} type="submit">
                 Next
             </Button>
         </React.Fragment>

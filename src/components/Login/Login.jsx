@@ -4,7 +4,7 @@ import LoginFields from './LoginFields'
 import { Button } from '@mui/material'
 import { Link } from 'react-router-dom'
 
-const Login = () => {
+const Login = ({mobileView}) => {
     if (window.innerWidth<=1024) 
     return (
         <div className='loginBox'>
@@ -39,7 +39,7 @@ const Login = () => {
                 OR
             </Typography>
 
-            <Button style={{
+            <Button component={Link} to="/signup" style={{
                 background:"#0A66C2",
                 color:'white',
                 textTransform:'none',
