@@ -7,7 +7,7 @@ const SectionHeader = ({title,link}) => {
             <div className="Title">
             <h2>{title}</h2>
             </div>
-            <Button color="inherit" style={{textTransform:"none"}} href={link}>
+            <Button  style={{textTransform:"none", color:"#203341"}} href={link}>
                 See All
             </Button>
         </div>

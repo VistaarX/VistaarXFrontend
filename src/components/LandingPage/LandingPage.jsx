@@ -13,6 +13,13 @@ const LandingPage = () => {
             name:"Apple iPad Air",
             company:"XYZ Co.",
             discount:"80",
+        },
+        {
+            image:"https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/ipad-air-select-wifi-gold-202009_FMT_WHH?wid=1000&hei=1000&fmt=jpeg&qlt=95&.v=1598653759000",
+            price:"40,000",
+            name:"Apple iPad Air",
+            company:"XYZ Co.",
+            discount:"80",
         }
     ])
 
@@ -42,10 +49,10 @@ const LandingPage = () => {
     else{
         return(
             <div className="LandingPage">
-                <DesktopNavbar/>
+                {/* <DesktopNavbar/> */}
                 <div className="Content" style={{display:'flex',flexDirection:'row'}}>
                     <div style={{
-                        border:'1px solid black',
+                        border:'0px solid black',
                         height:'90vh',
                         width:'20%',
                         margin:'10px',
@@ -53,18 +60,19 @@ const LandingPage = () => {
                     }}></div>
                     {/*=======================================================================*/}
                     <div style={{
-                        border:'1px solid black',
+                        border:'0px solid black',
                         height:'90vh',
                         width:'60%',
                         margin:'10px',
                         borderRadius:'15px',
-                        padding:'0 5% 0 5%'
+                        padding:'0 5% 0 5%',
+                        backgroundColor: "#FFFFFF"
                     }}>
                        <MobileView products={products} companies={companies} people={people}/>  
                     </div>
                     {/*=======================================================================*/}
                     <div style={{
-                        border:'1px solid black',
+                        border:'0px solid black',
                         height:'90vh',
                         width:'20%',
                         margin:'10px',

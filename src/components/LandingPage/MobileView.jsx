@@ -9,7 +9,7 @@ const MobileView = ({people,products,companies}) => {
     return (
         <div>
             <SectionHeader title="Products" link="http://www.google.com"/>
-                <ScrollMenu>
+                <ScrollMenu >
                     {products.slice(0,8).map(product=>
                         <ProductCard 
                             image={product.image} 
