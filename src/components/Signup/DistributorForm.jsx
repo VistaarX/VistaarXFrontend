@@ -7,6 +7,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import { Typography } from '@mui/material';
 import TextField from '@mui/material/TextField';
+import { Link } from 'react-router-dom';
 
 const DistributorForm = ({ marginLeft, width, values, handleChange, setPage, page, userType, heading }) => {
     return (
@@ -107,7 +108,7 @@ const DistributorForm = ({ marginLeft, width, values, handleChange, setPage, pag
                     background: 'white',
                     boxSizing: 'border-box'
                 }}
-                placeholder="@#$%" required>
+                required>
             </OutlinedInput>
             <br /><br />
 
@@ -118,7 +119,7 @@ const DistributorForm = ({ marginLeft, width, values, handleChange, setPage, pag
                     background: 'white',
                     boxSizing: 'border-box'
                 }}
-                placeholder="@#$%" required>
+                required>
             </OutlinedInput>
             <br /><br />
 
@@ -165,9 +166,15 @@ const DistributorForm = ({ marginLeft, width, values, handleChange, setPage, pag
                 boxSizing: 'border-box',
                 paddingTop: '10px'
             }}
-                onClick={() => setPage(page + 1)}>
+                type="submit">
                 Next
             </Button>
+            <br /><br />
+
+            
+            <p className='loginText' style={{marginBottom: '2vh'}}>
+                Want to Log in? <Link to='/login' style={{color: '#0A66C2'}}>Login</Link>
+            </p>
         </React.Fragment>
     )
 }

@@ -10,6 +10,7 @@ import { Button } from '@mui/material';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import { Typography } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 
 const Page1 = ({ marginLeft, width, values, handleChange, setPage, handleClickShowPassword, handleMouseDownPassword, page }) => {
@@ -24,7 +25,7 @@ const Page1 = ({ marginLeft, width, values, handleChange, setPage, handleClickSh
                 boxSizing: 'border-box',
                 fontSize: '48px'
             }} fontWeight="800">
-                <Typography style={{ fontWeight: '500', fontSize: '30px', display: 'inline-block' }}>Welcome to </Typography>&#160;Vistaar<Typography style={{ color: '#0A66C2', fontWeight: '800', display: 'inline-block', fontSize: '48px' }}>X</Typography>
+                Welcome to
             </Typography>
 
             <p>Full Name</p>
@@ -134,6 +135,11 @@ const Page1 = ({ marginLeft, width, values, handleChange, setPage, handleClickSh
                 type="submit">
                 Next
             </Button>
+            <br /><br />
+            
+            <p className='loginText' style={{marginBottom: '2vh'}}>
+                Want to Log in? <Link to='/login' style={{color: '#0A66C2'}}>Login</Link>
+            </p>
         </React.Fragment>
     )
 }
