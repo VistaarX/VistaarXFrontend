@@ -13,6 +13,7 @@ const LandingPage = () => {
             name:"Apple iPad Air",
             company:"XYZ Co.",
             discount:"80",
+            key: 1
         },
         {
             image:"https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/ipad-air-select-wifi-gold-202009_FMT_WHH?wid=1000&hei=1000&fmt=jpeg&qlt=95&.v=1598653759000",
@@ -20,6 +21,7 @@ const LandingPage = () => {
             name:"Apple iPad Air",
             company:"XYZ Co.",
             discount:"80",
+            key: 2
         }
     ])
 
