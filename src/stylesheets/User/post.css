@@ -1,0 +1,22 @@
+.post {
+    margin: auto 60px;
+}
+
+.post__header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.post__headerInfo {
+    margin-right: auto;
+    margin-left: 10px;
+}
+
+.post__image {
+    background-image: url("../../img/sample.png");
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: cover;
+    height: 400px;
+
+}

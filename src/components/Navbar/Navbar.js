@@ -27,7 +27,7 @@ function Navbar() {
                     <Link to='/network' style={linkStyle}><div className="icons"><FaUserFriends size={22} color="#3665dd"/>Network</div></Link>
                     <Link to='/add_post' style={linkStyle}><div className="icons"><FaPlusSquare size={22} color="#3665dd"/>Post</div></Link>
                     <div className="icons"><FaBell size={22} color="#3665dd"/>Notification</div>
-                    <div className="icons"><FaCircle size={22} color="#3665dd"/>User</div>
+                    <Link to="/user" style={linkStyle}><div className="icons"><FaCircle size={22} color="#3665dd"/>User</div></Link>
                     </Zoom>
                 </div>
                 <div className="navbar__body navbar__search">

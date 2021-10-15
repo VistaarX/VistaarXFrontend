@@ -5,6 +5,7 @@ import Signup from './components/Signup/Signup'
 import {BrowserRouter as Router,Switch,Route} from 'react-router-dom'
 import "./stylesheets/App.css"
 import Navbar from './components/Navbar/Navbar'
+import Employee  from './components/User/Employee/Employee'
 
 const App = () => {
   return (
@@ -20,6 +21,9 @@ const App = () => {
         </Route>
         <Route path="/signup" exact>
           <Signup/>
+        </Route>
+        <Route path="/user" exact>
+          <Employee />
         </Route>
       </Switch>
     </Router>
