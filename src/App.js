@@ -6,6 +6,7 @@ import {BrowserRouter as Router,Switch,Route} from 'react-router-dom'
 import "./stylesheets/App.css"
 import Navbar from './components/Navbar/Navbar'
 import Employee  from './components/User/Employee/Employee'
+import Catalogue from './components/Catalogue/Catalogue'
 
 const App = () => {
   return (
@@ -24,6 +25,9 @@ const App = () => {
         </Route>
         <Route path="/user" exact>
           <Employee />
+        </Route>
+        <Route path="/catalogue" exact>
+          <Catalogue/>
         </Route>
       </Switch>
     </Router>
