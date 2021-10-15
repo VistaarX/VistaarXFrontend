@@ -5,7 +5,7 @@ import Page3 from './Page3.jsx';
 import Page4 from './Page4.jsx';
 
 
-const SignupFields = ({ marginLeft, width, userTypes, values, setValues, onSubmit, page, wantTo, wantToOptions, setWantTo, 
+const SignupFields = ({ marginLeft, width, height, userTypes, values, setValues, onSubmit, page, setPage, wantTo, wantToOptions, setWantTo, 
  handleChange, handleClickShowPassword, handleMouseDownPassword, setUserType, userType }) => {
 
   const returnPage = page => {
@@ -20,8 +20,8 @@ const SignupFields = ({ marginLeft, width, userTypes, values, setValues, onSubmi
     )
     else if (page === 3) return (
       <Page3 values={values} handleChange={handleChange}
-        handleClickShowPassword={handleClickShowPassword} handleMouseDownPassword={handleMouseDownPassword} 
-        page={page} userTypes={userTypes} setUserType={setUserType} wantTo={wantTo} wantToOptions={wantToOptions} userType={userType}/>
+        handleClickShowPassword={handleClickShowPassword} handleMouseDownPassword={handleMouseDownPassword} page={page} 
+        setPage={setPage} userTypes={userTypes} setUserType={setUserType} wantTo={wantTo} wantToOptions={wantToOptions} userType={userType}/>
     )
     else if (page === 4) return (
       <Page4 values={values} handleChange={handleChange}
@@ -31,7 +31,7 @@ const SignupFields = ({ marginLeft, width, userTypes, values, setValues, onSubmi
   }
 
   return (
-    <form className='signupFields' onSubmit={onSubmit}>
+    <form className='signupFields' onSubmit={onSubmit} style={{height: height}}>
       {returnPage(page)}
     </form>
   )

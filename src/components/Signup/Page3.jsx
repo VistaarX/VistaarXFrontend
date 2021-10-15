@@ -5,6 +5,8 @@ import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
+import JoinExisting from './JoinExisting';
+import { Link } from 'react-router-dom';
 
 const Page3 = ({ marginLeft, width, values, handleChange, setPage, handleClickShowPassword, 
     handleMouseDownPassword, page, userType, userTypes, setUserType, wantTo, wantToOptions }) => {
@@ -53,12 +55,18 @@ const Page3 = ({ marginLeft, width, values, handleChange, setPage, handleClickSh
             }} type="submit">
                 Next
             </Button>
+            <br /><br />
+
+            
+            <p className='loginText' style={{marginBottom: '2vh'}}>
+                Want to Log in? <Link to='/login' style={{color: '#0A66C2'}}>Login</Link>
+            </p>
         </React.Fragment>
     )
     else return (
-        <React.Fragment>
-            Enter 4 digit code
-        </React.Fragment>
+        <div style={{display: 'table-cell', verticalAlign: 'middle', width: '100vw', height: '95vh'}}>
+            <JoinExisting page={page} setPage={setPage}/>
+        </div>
     )
 }
 

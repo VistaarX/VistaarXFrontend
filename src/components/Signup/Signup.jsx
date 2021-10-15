@@ -2,7 +2,9 @@ import { Typography } from '@mui/material'
 import React from 'react'
 import SignupFields from './SignupFields'
 import { Button } from '@mui/material'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
+import JoinExisting from './JoinExisting'
+
 import '../../stylesheets/Signup.css'
 
 const Signup = () => {
@@ -19,6 +21,7 @@ const Signup = () => {
         password: '',
         gender: 'Male',
         showPassword: false,
+        verificationCode: '',
         wantTo: wantToOptions[1],
         userType: userType,
         page4: [{
@@ -48,39 +51,57 @@ const Signup = () => {
     const handleMouseDownPassword = (event) => {
       event.preventDefault();
     };
-  
-    const onSubmit = event => {
-      event.preventDefault()
-      setPage(page+1)
-      console.log(`Signup.jsx: onSubmit called, values:`)
-      console.log(values)
+
+    const resetValues = () => {
+        setValues({
+            name: '',
+            email: '',
+            phone: '',
+            password: '',
+            gender: 'Male',
+            showPassword: false,
+            verificationCode: '',
+            wantTo: wantToOptions[1],
+            userType: userType,
+            page4: [{
+                formName: 'ManufacturerForm'
+            }, {
+                formName: 'DistributorForm'
+            }, {
+                formName: 'RetailerForm'
+            }]
+          })
     }
+
+    const onSubmit = event => {
+        event.preventDefault()
+        if(page<5)
+          setPage(page+1)
+        else if (page===5) {
+            setPage(1)
+            resetValues()
+            return <Redirect to='/add_post'></Redirect>
+        }
+      }
 
     if (window.innerWidth<=1024) 
     return (
         <div className='signupBox'>
 
-            <SignupFields marginLeft='5%' width='90%' userTypes={userTypes} onSubmit={onSubmit} values={values} 
-            setValues={setValues} page={page} handleChange={handleChange} handleClickShowPassword={handleClickShowPassword}
+            <SignupFields marginLeft='5%' width='90%' height='100%' userTypes={userTypes} onSubmit={onSubmit} values={values} 
+            setValues={setValues} page={page} setPage={setPage} handleChange={handleChange} handleClickShowPassword={handleClickShowPassword}
             handleMouseDownPassword={handleMouseDownPassword} wantToOptions={wantToOptions} setWantTo={setWantTo} wantTo={wantTo}
-            userType={userType} setUserType={setUserType}/>
-
-            <p className='loginText'>
-                Want to Log in? <Link to='/login' style={{color: '#0A66C2'}}>Login</Link>
-            </p>
+            userType={userType} setUserType={setUserType} userTypes={userTypes} height='100vh'/>
         </div>
     )
 
     else return (
         <div className='signupBox'>
-            <SignupFields marginLeft='5%' width='90%' userTypes={userTypes} onSubmit={onSubmit} values={values} 
-            setValues={setValues} page={page} handleChange={handleChange} handleClickShowPassword={handleClickShowPassword}
+            <SignupFields marginLeft='5%' width='90%' height='100%' userTypes={userTypes} onSubmit={onSubmit} values={values} 
+            setValues={setValues} page={page} setPage={setPage} handleChange={handleChange} handleClickShowPassword={handleClickShowPassword}
             handleMouseDownPassword={handleMouseDownPassword} wantToOptions={wantToOptions} setWantTo={setWantTo} wantTo={wantTo}
-            userType={userType} setUserType={setUserType} userTypes={userTypes}/>
+            userType={userType} setUserType={setUserType} userTypes={userTypes} />
             <br/>
-            <p className='loginText'>
-                Want to Log in? <Link to='/login' style={{color: '#0A66C2'}}>Login</Link>
-            </p>
         </div>
     )
 }
