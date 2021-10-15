@@ -1,0 +1,65 @@
+.catalog__card {
+    background: #cad9e9;
+    border-radius: 8px;
+    margin-bottom: 10vh;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+}
+
+.catalog__cardImg {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background-color: white;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    margin: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.catalog__info {
+    margin-left: 10px;
+}
+
+.catalog__info > .title {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 19px;
+}
+
+.catalog__info > p {
+    font-family: Poppins;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.catalog__info > button {
+    background: #0A66C2;
+    border-radius: 4px;
+    border: none;
+    padding: 5px;
+    margin-left: 25px;
+    margin-bottom: 25px;
+    margin-top: 25px;
+}
+
+.catalog__info > button > p {
+    color: white;
+    font-weight: 600;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 14px;
+    line-height: 21px;
+}
+
+@media screen and (max-width: 1080px) {
+    /* .catalog__card {
+        display: none;
+    } */
+}
