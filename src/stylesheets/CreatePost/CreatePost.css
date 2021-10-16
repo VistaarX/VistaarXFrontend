@@ -1,0 +1,175 @@
+.post {
+    background: #FFFFFF;
+    border-radius: 10px;
+    width: 60%;
+    margin: auto;
+    margin-top: 25px;
+}
+
+.post__header {
+    padding: 25px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.post__header > .title {
+    margin: auto;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 54px;
+}
+
+.post > hr {
+    background-color: black;
+    height: 1px;
+}
+
+.post__body {
+    padding: 50px;
+}
+
+.post__user {
+    display: flex;
+    align-items: center;
+}
+
+.userImg{
+    margin-right: 10px;
+}
+
+.userName > .name {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 42px;
+    display: flex;
+    align-items: center;
+    color: rgba(0, 0, 0, 0.9);
+    
+    
+}
+
+.userName > .company {
+    font-family: Calibri;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 21px;
+    line-height: 26px;
+    display: flex;
+    align-items: center;
+    
+    color: #000000;
+}
+
+.post__body> .placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+.post__body > .placeholder > .text {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 27px;
+    color: #7c7c7c;
+    width: 100%;
+    border: none;
+    margin-right: 30px;
+}
+.post__body > .placeholder > input:focus {
+    outline: none;
+}
+
+.post__container {
+    margin-top: 25px;
+    width: 100%;
+    height: 250px;
+    border: 1px solid black;
+    border-radius: 10px;
+    display: flex;
+}
+
+.post__container > .content {
+    margin: auto;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30.6325px;
+    line-height: 46px;
+    display: flex;
+    flex-direction: column;
+    color: #66676B;
+    align-items: center;
+}
+
+.post__container > .content > .dnd {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 27px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+
+    color: #7C7C7C;
+}
+
+.post__container > .content > img {
+    height: 50px;
+    width: 50px;
+}
+
+.post__add {
+    display: flex;
+    margin-top: 25px;
+    justify-content: center;
+    align-items: center;
+}
+
+.post__add > .addPost {
+    background: #F7A808;
+    border-radius: 8px;
+    border-color: #F7A808;
+    width: 40%;
+    padding: 10px;
+    color: white;
+    font-weight: 800;
+    cursor: pointer;
+    font-size: 18px;
+    letter-spacing: 5px;
+}
+
+.custom-file-input::-webkit-file-upload-button {
+    visibility: hidden;
+}
+
+
+.custom-file-input::before {
+    content: url('https://picsum.photos/50');
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 560px) and (min-width: 0px) {
+    .post {
+        width: 99%;
+        margin-top: 0;
+    }
+    .post__header > .title {
+        margin: 0;
+    }
+    .post__add > .addPost {
+        width: 100%;
+    }
+    .post__container > .content > .dnd {
+        display: none;
+    }
+}

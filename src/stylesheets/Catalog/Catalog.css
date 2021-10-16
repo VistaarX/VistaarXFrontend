@@ -25,29 +25,14 @@ body {
     grid-template-columns: auto auto auto;
     margin-left: 10vh;
 }
-
-
-/* @media screen and (max-width: 560px) {
-    .catalog__content {
-        display: flex;
-        flex-direction: column;
-
-    }
-} */
-
-
-/* @media screen and (max-width: 720px) {
-    .catalog__content {
-        display: flex;
-        flex-direction: column;
-
-    }
-} */
-
 @media (max-width: 720px) and (min-width: 0px) {
     .catalog__content {
         display: flex;
         flex-direction: column;
+        margin-left: 25px;
+    }
+    .catalog__header {
+        margin-left: 10px;
     }
 }
 

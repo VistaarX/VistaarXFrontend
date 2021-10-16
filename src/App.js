@@ -7,6 +7,7 @@ import "./stylesheets/App.css"
 import Navbar from './components/Navbar/Navbar'
 import Employee  from './components/User/Employee/Employee'
 import Catalogue from './components/Catalogue/Catalogue'
+import CreatePost from './components/CreatePost/CreatePost'
 
 const App = () => {
   return (
@@ -28,6 +29,9 @@ const App = () => {
         </Route>
         <Route path="/catalogue" exact>
           <Catalogue/>
+        </Route>
+        <Route path="/createPost" exact>
+          <CreatePost/>
         </Route>
       </Switch>
     </Router>
