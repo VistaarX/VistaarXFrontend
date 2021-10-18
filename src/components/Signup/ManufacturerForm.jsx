@@ -143,6 +143,7 @@ const ManufacturerForm = ({ marginLeft, width, values, handleChange, setPage, pa
                 rows={4}
                 rowsMax={6}
                 style={{ width: '100%' }}
+                required
             />
             <br /><br />
             
@@ -152,6 +153,7 @@ const ManufacturerForm = ({ marginLeft, width, values, handleChange, setPage, pa
                 rows={4}
                 rowsMax={6}
                 style={{ width: '100%' }}
+                required
             />
             <br /><br />
 

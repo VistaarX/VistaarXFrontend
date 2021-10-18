@@ -143,6 +143,7 @@ const DistributorForm = ({ marginLeft, width, values, handleChange, setPage, pag
                 rows={4}
                 rowsMax={6}
                 style={{ width: '100%' }}
+                required
             />
             <br /><br />
             
@@ -152,6 +153,7 @@ const DistributorForm = ({ marginLeft, width, values, handleChange, setPage, pag
                 rows={4}
                 rowsMax={6}
                 style={{ width: '100%' }}
+                required
             />
             <br /><br />
 
