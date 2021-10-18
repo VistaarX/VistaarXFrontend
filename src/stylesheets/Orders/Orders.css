@@ -1,0 +1,24 @@
+.orders {
+    background: #FFFFFF;
+    border-radius: 10px;
+    width: 60%;
+    margin: auto;
+    margin-top: 25px;
+}
+
+.orders__header {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 48px;
+    color: #000000;
+    padding: 25px;
+    margin-left: 25px;
+}
+
+@media (max-width: 1080px) and (min-width: 0px) {
+    .orders {
+        width: 80%;
+    }
+}
