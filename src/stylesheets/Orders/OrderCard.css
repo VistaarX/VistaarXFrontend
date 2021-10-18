@@ -1,0 +1,79 @@
+.orderCard {
+    background-color: #E7F0F9;
+    border-radius: 10px;
+    padding: 25px;
+    margin: 25px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.orderCard__left > .details {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.orderCard__left > .details > img {
+    width: 100px;
+    margin-right: 25px;
+    border-radius: 5px;
+}
+
+.orderCard__left > .details > .info > .name {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 36px;
+    color: #000000;
+}
+
+.orderCard__left > .details > .info > .cost {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 28px;
+    line-height: 42px;
+    color: #000000;
+}
+
+.orderCard__left > .buyer {
+    padding: 25px;
+}
+
+.orderCard__left > .buyer > p {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 27px;
+    color: #000000;
+}
+
+.orderCard__right > button {
+    background: #0A66C2;
+    border-radius: 8px;
+    border-color: #0A66C2;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 33px;
+    padding: 10px;
+    color: #FFFFFF;
+}
+
+@media (max-width: 1080px) and (min-width: 0px) {
+    .orderCard{
+        display: block;
+    }
+    .orderCard__right > button {
+        width: 100%;
+    }
+    .orderCard__left > .buyer {
+        text-align: center;
+    }
+}

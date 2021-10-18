@@ -8,6 +8,7 @@ import Navbar from './components/Navbar/Navbar'
 import Employee  from './components/User/Employee/Employee'
 import Catalogue from './components/Catalogue/Catalogue'
 import CreatePost from './components/CreatePost/CreatePost'
+import Orders from './components/Orders/Orders'
 
 const App = () => {
   return (
@@ -32,6 +33,9 @@ const App = () => {
         </Route>
         <Route path="/createPost" exact>
           <CreatePost/>
+        </Route>
+        <Route path="/orders" exact>
+          <Orders/>
         </Route>
       </Switch>
     </Router>
