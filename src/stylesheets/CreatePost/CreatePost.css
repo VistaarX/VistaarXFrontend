@@ -24,7 +24,7 @@
     height: 1px;
 }
 
-.createPost__body {
+.createPost {
     padding: 50px;
 }
 
@@ -163,7 +163,7 @@
 }
 
 @media only screen and (min-width: 1024px) {
-    .post__add {
+    .createPost__add {
         display: flex;
         margin-top: 25px;
         justify-content: space-around;
@@ -187,6 +187,6 @@
     }
 }
 
-.signup.post .post__body {
+.signup.createPost .createPost__body {
     padding-top: 0;
 }

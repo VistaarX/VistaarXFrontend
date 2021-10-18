@@ -4,8 +4,8 @@ import { Button, OutlinedInput } from '@mui/material';
 
 const page5 = () => {
     return (
-        <div className="signup post" style={{width: '100%', margin: '0'}}>
-            <div className="post__header">
+        <div className="signup createPost" style={{width: '100%', margin: '0'}}>
+            <div className="createPost__header">
                 <h1 className="title">Add your product</h1>
                 {/* <div className="cross"><Cancel/></div> */}
             </div>
@@ -34,15 +34,15 @@ const page5 = () => {
             <br /><br />
             
             <p>Add photo</p>
-            <div className="post__body">
-                <div className="post__container">
+            <div className="createPost__body">
+                <div className="createPost__container">
                     <div className="content">
                         <input type="file" className="custom-file-input"/>
                         <p className="text">Photo/Video</p>
                         <p className="dnd">or drag and drop</p>
                     </div>
                 </div>
-                <div className="post__add">
+                <div className="createPost__add">
                     <button className="addPost" style={{
                         background: "#0A66C2",
                         fontSize: '22px',
