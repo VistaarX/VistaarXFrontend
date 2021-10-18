@@ -1,35 +1,35 @@
-.post {
-    background: #FFFFFF;
+.createPost {
+   background: #FFFFFF;
     border-radius: 10px;
     width: 60%;
     margin: auto;
     margin-top: 25px;
 }
 
-.post__header {
+.createPost__header {
     padding: 25px;
     display: flex;
     flex-direction: row;
     align-items: center;
 }
 
-.post__header > .title {
+.createPost__header > .title {
     margin: auto;
     font-weight: 600;
     font-size: 36px;
     line-height: 54px;
 }
 
-.post > hr {
+.createPost > hr {
     background-color: black;
     height: 1px;
 }
 
-.post__body {
+.createPost__body {
     padding: 50px;
 }
 
-.post__user {
+.createPost__user {
     display: flex;
     align-items: center;
 }
@@ -63,14 +63,14 @@
     color: #000000;
 }
 
-.post__body> .placeholder {
+.createPost__body> .placeholder {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-top: 50px;
 }
 
-.post__body > .placeholder > .text {
+.createPost__body > .placeholder > .text {
     font-family: Poppins;
     font-style: normal;
     font-weight: 600;
@@ -81,11 +81,11 @@
     border: none;
     margin-right: 30px;
 }
-.post__body > .placeholder > input:focus {
+.createPost__body > .placeholder > input:focus {
     outline: none;
 }
 
-.post__container {
+.createPost__container {
     margin-top: 25px;
     width: 100%;
     height: 250px;
@@ -94,7 +94,7 @@
     display: flex;
 }
 
-.post__container > .content {
+.createPost__container > .content {
     margin: auto;
     font-family: Poppins;
     font-style: normal;
@@ -107,7 +107,7 @@
     align-items: center;
 }
 
-.post__container > .content > .dnd {
+.createPost__container > .content > .dnd {
     font-family: Poppins;
     font-style: normal;
     font-weight: 600;
@@ -121,19 +121,19 @@
     color: #7C7C7C;
 }
 
-.post__container > .content > img {
+.createPost__container > .content > img {
     height: 50px;
     width: 50px;
 }
 
-.post__add {
+.createPost__add {
     display: flex;
     margin-top: 25px;
     justify-content: center;
     align-items: center;
 }
 
-.post__add > .addPost {
+.createPost__add > .addPost {
     background: #F7A808;
     border-radius: 8px;
     border-color: #F7A808;
@@ -159,17 +159,17 @@
 }
 
 @media (max-width: 560px) and (min-width: 0px) {
-    .post {
+    .createPost {
         width: 99%;
         margin-top: 0;
     }
-    .post__header > .title {
+    .createPost__header > .title {
         margin: 0;
     }
-    .post__add > .addPost {
+    .createPost__add > .addPost {
         width: 100%;
     }
-    .post__container > .content > .dnd {
+    .createPost__container > .content > .dnd {
         display: none;
     }
 }

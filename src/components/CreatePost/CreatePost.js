@@ -5,14 +5,14 @@ import { Avatar } from '@mui/material';
 
 const CreatePost = () => {
     return (
-        <div className="post">
-            <div className="post__header">
+        <div className="createPost">
+            <div className="createPost__header">
                 <h1 className="title">Create Post</h1>
                 <div className="cross"><Cancel/></div>
             </div>
             <hr />
-            <div className="post__body">
-                <div className="post__user">
+            <div className="createPost__body">
+                <div className="createPost__user">
                     <div className="userImg">
                         <Avatar/>
                     </div>
@@ -25,14 +25,14 @@ const CreatePost = () => {
                     <input className="text" type="text" placeholder="What’s on your mind , Arjeet?" />
                     <p className="emoji">😀</p>
                 </div>
-                <div className="post__container">
+                <div className="createPost__container">
                     <div className="content">
                         <input type="file" className="custom-file-input"/>
                         <p className="text">Photo/Video</p>
                         <p className="dnd">or drag and drop</p>
                     </div>
                 </div>
-                <div className="post__add">
+                <div className="createPost__add">
                     <button className="addPost">Add Post</button>
                 </div>
             </div>
