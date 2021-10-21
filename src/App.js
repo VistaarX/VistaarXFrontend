@@ -9,6 +9,7 @@ import Employee  from './components/User/Employee/Employee'
 import Catalogue from './components/Catalogue/Catalogue'
 import CreatePost from './components/CreatePost/CreatePost'
 import Orders from './components/Orders/Orders'
+import Network from './components/Network/Network'
 
 const App = () => {
   return (
@@ -37,6 +38,10 @@ const App = () => {
         <Route path="/orders" exact>
           <Orders/>
         </Route>
+        <Route path="/network" exact>
+          <Network/>
+        </Route>
+        
       </Switch>
     </Router>
     </div>
