@@ -27,7 +27,7 @@ const CreatePost = () => {
                 </div>
                 <div className="createPost__container">
                     <div className="content">
-                        <input type="file" className="custom-file-input"/>
+                        <input type="file" className="custom-file-input"></input>
                         <p className="text">Photo/Video</p>
                         <p className="dnd">or drag and drop</p>
                     </div>

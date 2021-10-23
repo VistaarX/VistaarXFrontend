@@ -1,0 +1,26 @@
+
+.top_buttons{
+    display: flex;
+    /* border: 2px solid black; */
+    justify-content: center;
+    align-items: center;
+    height: 15vh;
+}
+.top_buttons button{
+    width: 17vw;
+    height: 8vh;
+    border-radius: 15px;
+    border: none;
+    /* color: black; */
+    font-weight: 600;
+    font-size: 18px;
+    
+}
+
+.recieved_button{
+    color: white;
+    background-color: #3665dd;
+}
+.sent_button{
+    background-color: white;
+}

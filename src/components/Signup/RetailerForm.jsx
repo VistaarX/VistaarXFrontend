@@ -99,6 +99,7 @@ const RetailerForm = ({ marginLeft, width, values, handleChange, setPage, page, 
                 rows={4}
                 rowsMax={6}
                 style={{ width: '100%' }}
+                required
             />
             <br /><br />
             
@@ -108,6 +109,7 @@ const RetailerForm = ({ marginLeft, width, values, handleChange, setPage, page, 
                 rows={4}
                 rowsMax={6}
                 style={{ width: '100%' }}
+                required
             />
             <br /><br />
 
