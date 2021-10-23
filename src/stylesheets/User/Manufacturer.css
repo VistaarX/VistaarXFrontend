@@ -1,0 +1,74 @@
+.company{
+    /* background-color: antiquewhite; */
+    margin: 30px 10vw 0;
+    background: white;
+}
+
+
+.company__headBox {
+    background-color: #203341;
+    height: 190px;
+    border-radius: 25px;
+    box-shadow: 0 6px 4px 0 rgba(0, 0, 0, 0.3);
+}
+
+.company__avatar {
+    height: 180px;
+    width: 180px;
+    border-radius: 100%;
+    background-color: rgb(199, 199, 199);
+    position: relative;
+    top: 50px;
+    margin: auto;
+    box-shadow: 0 8px 6px 0px rgba(54, 54, 54, 0.158);
+}
+
+.company__detail{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.company__designation{
+    max-width: 220px;
+    margin: 0 auto;
+    background-color: orange;
+    padding: 4px 20px;
+    font-weight: bolder;
+    color: white;
+}
+
+.progressBar {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.progressBar > h4 {
+    width: 200px;
+}
+.progressBar__rectangle {
+    width: 250px;
+    background-color: rgb(196, 196, 196);
+}
+
+@media only screen and (max-width: 600px) {
+    .progressBar{
+        flex-direction: column;
+        /* margin: 20px; */
+        align-items: center;
+    }
+
+    .progressBar > h4 {
+        width: auto;
+    }
+
+    .progressBar__rectangle{
+        width:80%;
+        height: 20px;
+    background-color: rgb(196, 196, 196);
+        margin-bottom: 20px;
+    }
+}

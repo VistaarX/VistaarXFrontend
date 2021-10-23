@@ -1,6 +1,7 @@
 .employee {
     /* background-color: antiquewhite; */
     margin: 30px 10vw 0;
+    background: white;
 }
 
 .employee__headBox {

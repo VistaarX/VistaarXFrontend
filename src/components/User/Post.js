@@ -21,7 +21,7 @@ const Post = () => {
         nibh mauris ante ultrices adipiscing at maecenas. Sagittis turpis
         viverra egestas felis ut massa nunc mattis neque.
       </p>
-      {/* <img src={sample} alt=""/> */}
+      
       <div className="post__image">
 
       </div>

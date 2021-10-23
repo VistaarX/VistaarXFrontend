@@ -8,6 +8,7 @@ import Navbar from './components/Navbar/Navbar'
 import Employee  from './components/User/Employee/Employee'
 import Catalogue from './components/Catalogue/Catalogue'
 import CreatePost from './components/CreatePost/CreatePost'
+import Manufacturer from './components/User/Manufacturer/Manufacturer'
 
 const App = () => {
   return (
@@ -24,8 +25,11 @@ const App = () => {
         <Route path="/signup" exact>
           <Signup/>
         </Route>
-        <Route path="/user" exact>
+        <Route path="/user/employee" exact>
           <Employee />
+        </Route>
+        <Route path="/user" exact>
+          <Manufacturer />
         </Route>
         <Route path="/catalogue" exact>
           <Catalogue/>
