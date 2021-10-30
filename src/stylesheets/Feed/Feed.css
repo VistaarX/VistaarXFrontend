@@ -1,0 +1,84 @@
+.feed {
+    width: 60%;
+    margin: auto;
+}
+ 
+.feed__header {
+    background: #FFFFFF;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.feed__header > .top {
+    border-bottom: 1px solid black;
+    display: flex;
+    align-items: center;
+    padding: 25px;
+}
+
+.feed__header > .top > .text {
+    margin-left: 25px;
+    color: black;    
+    border: none;
+}
+
+.feed__header > .top > .text:focus {
+    outline: none;
+}
+
+.feed__header > .top > .text::placeholder {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+
+.feed__header > .bottom {
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.feed__header > .bottom > .photo {
+    display: flex;
+    margin-right: 25px;
+    cursor: pointer;
+}
+
+.feed__header > .bottom > .photo > .text {
+    margin-left: 5px;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    color: #000000;
+}
+
+.feed__header > .bottom > .video {
+    display: flex;
+    margin-left: 25px;
+    cursor: pointer;
+}
+.feed__header > .bottom > .video > .text {
+    margin-left: 5px;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    color: #000000;
+}
+
+.feed__body {
+    margin-top: 25px;
+}
+
+@media (max-width: 560px) and (min-width: 0px) {
+    .feed {
+        width: 100%;
+    }
+}

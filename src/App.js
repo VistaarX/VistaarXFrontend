@@ -11,6 +11,8 @@ import CreatePost from './components/CreatePost/CreatePost'
 import Manufacturer from './components/User/Manufacturer/Manufacturer'
 import Orders from './components/Orders/Orders'
 import Network from './components/Network/Network'
+import Feed from './components/Feed/Feed'
+
 
 const App = () => {
   return (
@@ -41,6 +43,9 @@ const App = () => {
         </Route>
         <Route path="/orders" exact>
           <Orders/>
+        </Route>
+        <Route path="/feeds" exact>
+          <Feed/>
         </Route>
         <Route path="/network" exact>
           <Network/>

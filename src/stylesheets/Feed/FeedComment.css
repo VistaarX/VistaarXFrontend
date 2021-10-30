@@ -1,0 +1,18 @@
+.feedComment {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 40px;
+}
+
+.feedComment > ._text {
+    margin-left: 10px;
+}
+
+.feedComment > ._text > .brand {
+    font-weight: bold;
+    font-size: large;
+}
+
+.feedComment > ._text > .comment {
+    font-weight: bold;
+}
