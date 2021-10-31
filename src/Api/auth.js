@@ -41,7 +41,7 @@ const handleLogout = async () => {
     }
 }
 
-const changePassword = async () => {
+const changePassword = async (value) => {
     try {
         const res = await authAxios.put("/update_password", value)
         console.log(res)
