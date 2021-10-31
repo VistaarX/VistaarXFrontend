@@ -40,4 +40,13 @@ const handleLogout = async () => {
         console.log(err)
     }
 }
-export {handleSignup, handleLogin, handleLogout };
+
+const changePassword = async () => {
+    try {
+        const res = await authAxios.put("/update_password", value)
+        console.log(res)
+    } catch (err) {
+        console.log(err)
+    }
+}
+export {handleSignup, handleLogin, handleLogout, changePassword };
