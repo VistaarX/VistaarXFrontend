@@ -69,20 +69,8 @@ const Login = ({mobileView}) => {
 
             <LoginFields marginLeft='50%' width='45%'/>
 
-            <Button style={{
-                background:"#0A66C2",
-                color:'white',
-                textTransform:'none',
-                width: '45%',
-                height: '46px',
-                alignSelf:'center',
-                fontWeight:'600',
-                marginBottom:'46px',
-                marginLeft: '50%'
-            }}>
-                Login
-            </Button>
-
+           {/* Removed button from here and added in login fields component */}
+           
             <Typography style={{
                 fontWeight: '300',
                 fontSize: '18px',

@@ -3,7 +3,8 @@ import SignupFields from './SignupFields'
 import { Button } from '@mui/material'
 import { Link, Redirect } from 'react-router-dom'
 import JoinExisting from './JoinExisting'
-
+import axios from 'axios'
+import { handleSignup } from '../../Api/auth'
 import '../../stylesheets/Signup.css'
 
 const Signup = () => {
@@ -74,6 +75,9 @@ const Signup = () => {
 
     const onSubmit = event => {
         event.preventDefault()
+        // Signup 
+        handleSignup(values)
+
         if(page<5)
           setPage(page+1)
         else if (page===5) {

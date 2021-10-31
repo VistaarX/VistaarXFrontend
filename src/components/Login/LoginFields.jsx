@@ -5,10 +5,13 @@ import OutlinedInput from '@mui/material/OutlinedInput';
 import InputAdornment from '@mui/material/InputAdornment';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import axios from 'axios';
+import {handleLogin} from '../../Api/auth'
 import { Lock } from '@material-ui/icons';
 import { Button } from '@mui/material';
 const LoginFields = ({ marginLeft, width }) => {
     const [values, setValues] = React.useState({
+        email: 'elon@musk.com',
         password: '',
         showPassword: false,
       });
@@ -28,7 +31,9 @@ const LoginFields = ({ marginLeft, width }) => {
         event.preventDefault();
       };
 
+      
     return (
+      <>
         <div>
             <OutlinedInput 
             style={{
@@ -37,6 +42,8 @@ const LoginFields = ({ marginLeft, width }) => {
                 marginLeft: marginLeft,
                 boxSizing:'border-box'
             }}
+            
+            value = {values.email}
             placeholder="Email"
             startAdornment={
                 <InputAdornment position="start">
@@ -88,7 +95,24 @@ const LoginFields = ({ marginLeft, width }) => {
             }} className='forgotPassword'>
                 Forgot Password?
             </Button>
+            
         </div>
+
+        {/* Gave button here to link with login */}
+        <Button onClick={() => handleLogin(values)} style={{
+                background:"#0A66C2",
+                color:'white',
+                textTransform:'none',
+                width: '41%',
+                height: '46px',
+                alignSelf:'center',
+                fontWeight:'600',
+                marginBottom:'46px',
+                marginLeft: '50%',
+            }}>
+                Login
+            </Button>
+        </>
     )
 }
 
