@@ -28,15 +28,38 @@ const Suggestion = () => {
     const suggestions = [{
         name: 'Mrinal',
         connections: '400',
-        companyName: 'VistaarX'
+        companyName: 'VistaarX',
+        img: "https://picsum.photos/200"
     }, {
         name: 'Raj',
         connections: '500',
-        companyName: 'VistaarX'
+        companyName: 'VistaarX',
+        img: "https://picsum.photos/200"
     }, {
         name: 'Deepanshu',
         connections: '600',
-        companyName: 'VistaarX'
+        companyName: 'VistaarX',
+        img: "https://picsum.photos/200"
+    }, {
+        name: 'Deepanshu',
+        connections: '600',
+        companyName: 'VistaarX',
+        img: "https://picsum.photos/200"
+    }, {
+        name: 'Deepanshu',
+        connections: '600',
+        companyName: 'VistaarX',
+        img: "https://picsum.photos/200"
+    }, {
+        name: 'Deepanshu',
+        connections: '600',
+        companyName: 'VistaarX',
+        img: "https://picsum.photos/200"
+    }, {
+        name: 'Deepanshu',
+        connections: '600',
+        companyName: 'VistaarX',
+        img: "https://picsum.photos/200"
     }]
 
 
@@ -67,7 +90,9 @@ const Suggestion = () => {
             <div className="employee_container">
                 <div className="emplyoees">
                     {
-                        suggestions.map(({name, companyName, connections})=><SuggestionCard name={name}/>)
+                        suggestions.map((suggestion) => {
+                            return <SuggestionCard suggestion={suggestion} />
+                        })
                     }
                 </div>
             </div>
