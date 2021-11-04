@@ -1,10 +1,20 @@
-import React from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import FeedCard from './FeedCard'
 import { Avatar } from '@mui/material';
 import '../../stylesheets/Feed/Feed.css'
 import { Image, Videocam } from '@mui/icons-material';
+import { getFeed } from '../../Api/post/fetchPost';
 
 const Feed = () => {
+    const [feed, setFeed] = useState([]);
+    let [render, setRender]=useState(false);
+    useEffect(async ()=>{
+        let feed=await getFeed()
+        setFeed(feed['data'])
+    },[render])
+    const switchRender=(e)=>{
+        setRender(!render)
+    }
     return (
         <div className="feed">
             <div className="feed__header">
@@ -22,9 +32,15 @@ const Feed = () => {
                 </div>
             </div>
             <div className="feed__body">
-                <FeedCard />
-                <FeedCard />
-                <FeedCard />
+                {feed.map((posts_object, out_index)=>{
+                    return (
+                        posts_object.posts.map((feed_card, index)=>{
+                            return <Fragment key={out_index+index}>
+                                <FeedCard post={feed_card} switchRender={(e)=>switchRender(e)}></FeedCard>
+                            </Fragment> 
+                        })
+                    )
+                })}
             </div>
         </div>
     )

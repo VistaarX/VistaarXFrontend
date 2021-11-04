@@ -1,9 +1,31 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import '../../stylesheets/CreatePost/CreatePost.css'
 import Cancel from '@mui/icons-material/Cancel';
 import { Avatar } from '@mui/material';
+import { userDetails } from '../../Api/user/fetchRequests';
+import { createPost } from '../../Api/post/postActions';
 
 const CreatePost = () => {
+    let [user_id, set_user_id]=useState(null)
+    let post_content_ref=useRef(null);
+    useEffect(async()=>{
+        user_id=await userDetails();
+        user_id=await user_id['data']
+        set_user_id(user_id)
+    },[])
+    const handleSubmitPost=async()=>{
+        let content_text=post_content_ref.current.value;
+        await createPost({
+            "content":content_text,
+            "image":"Image URL here."
+        });
+        post_content_ref.current.value="";
+        console.log("Post submitted")
+    }
+    const autoresize=(e)=>{
+        e.target.style.height="auto";
+        e.target.style.height = e.target.scrollHeight + 'px';
+    }
     return (
         <div className="createPost">
             <div className="createPost__header">
@@ -17,12 +39,12 @@ const CreatePost = () => {
                         <Avatar/>
                     </div>
                     <div className="userName">
-                        <p className="name">Arjeet Anand</p>
-                        <p className="company">VistaarX</p>
+                        <p className="name">{user_id ? user_id.user.name:""}</p>
+                        <p className="company">{user_id ? user_id.user.company_profile.name:""}</p>
                     </div>
                 </div>
                 <div className="placeholder">
-                    <input className="text" type="text" placeholder="What’s on your mind , Arjeet?" />
+                    <textarea wrap="soft" onChange={(e)=>autoresize(e)} className="text" placeholder={`What’s on your mind ${user_id ? user_id.user.name.split(" ")[0] : ""}?`} ref={post_content_ref}></textarea>
                     <p className="emoji">😀</p>
                 </div>
                 <div className="createPost__container">
@@ -33,7 +55,7 @@ const CreatePost = () => {
                     </div>
                 </div>
                 <div className="createPost__add">
-                    <button className="addPost">Add Post</button>
+                    <button className="addPost" onClick={handleSubmitPost}>Add Post</button>
                 </div>
             </div>
         </div>

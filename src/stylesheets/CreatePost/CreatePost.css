@@ -79,6 +79,9 @@
     width: 100%;
     border: none;
     margin-right: 30px;
+    padding:10px;
+    overflow: hidden;
+    resize: none;
 }
 .createPost__body > .placeholder > input:focus {
     outline: none;

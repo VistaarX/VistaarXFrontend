@@ -12,6 +12,7 @@ const axios = createAxios.create({
 const createPost = async(values) => {
     try{
         const res = await axios.post("/", values)
+        return res;
         console.log(res)
     } catch (err) {
         console.log(err)

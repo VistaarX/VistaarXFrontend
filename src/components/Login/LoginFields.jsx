@@ -11,7 +11,7 @@ import { Lock } from '@material-ui/icons';
 import { Button } from '@mui/material';
 const LoginFields = ({ marginLeft, width }) => {
     const [values, setValues] = React.useState({
-        email: 'elon@musk.com',
+        email: '',
         password: '',
         showPassword: false,
       });
@@ -44,6 +44,7 @@ const LoginFields = ({ marginLeft, width }) => {
             }}
             
             value = {values.email}
+            onChange={handleChange('email')}
             placeholder="Email"
             startAdornment={
                 <InputAdornment position="start">
