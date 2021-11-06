@@ -1,82 +1,60 @@
-import React, { useState } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import ConnectionCard from './ConnectionCard';
 import SuggestionCard from './SuggestionCard';
 import ProfilePic from './profile_pic.png';
 import "../../../stylesheets/NetworkPage/Suggestion.css";
 
-const Suggestion = () => {
-    const [connectUp1, setConnectUp1] = useState(true)
-    const [count, setCount] = useState(8)
-    const [display, setDisplay] = useState(true)
+const Suggestion = (props) => {
+
+    const connectionRequests=props.received_requests ? props.received_requests:[];
+    const deliveredRequests=props.sent_requests ? props.sent_requests:[];
     
-    const [connectDisplay, setconnectDisplay] = useState(true)
-
-    const [connectionRequests, setConnectionRequests ] = useState([{
-        profilePic: '',                 //Add route to profile pic
-        name: 'Deepanshu',
-        designation: 'React Developer',
-        connections: '630'
-    }, {
-        profilePic: '',
-        name: 'Keshav',
-        designation: 'Backend Developer',
-        connections: '670'
-    }])
-
-    const [connectCount, setConnectCount] = useState(connectionRequests.length)
-
-    const suggestions = [{
-        name: 'Mrinal',
-        connections: '400',
-        companyName: 'VistaarX',
-        img: "https://picsum.photos/200"
-    }, {
-        name: 'Raj',
-        connections: '500',
-        companyName: 'VistaarX',
-        img: "https://picsum.photos/200"
-    }, {
-        name: 'Deepanshu',
-        connections: '600',
-        companyName: 'VistaarX',
-        img: "https://picsum.photos/200"
-    }, {
-        name: 'Deepanshu',
-        connections: '600',
-        companyName: 'VistaarX',
-        img: "https://picsum.photos/200"
-    }, {
-        name: 'Deepanshu',
-        connections: '600',
-        companyName: 'VistaarX',
-        img: "https://picsum.photos/200"
-    }, {
-        name: 'Deepanshu',
-        connections: '600',
-        companyName: 'VistaarX',
-        img: "https://picsum.photos/200"
-    }, {
-        name: 'Deepanshu',
-        connections: '600',
-        companyName: 'VistaarX',
-        img: "https://picsum.photos/200"
-    }]
-
-
     return (
         <>
             <div className="more_connections">
                 <div className="connection">
                     <div className="heading-1">
                         <div className="box_1"><hr /></div>
-                        <div className="text"><p>YOU HAVE <span>{connectCount} MORE CONNECTIONS</span></p></div>
+                        <div className="text"><p>YOU HAVE 
+                            {props.toggle_state===true ? 
+                                <span> {connectionRequests.length} MORE CONNECTIONS</span> :
+                                <span> {deliveredRequests.length} SENT CONNECTIONS</span>
+                            }
+                            </p></div>
                         <div className="box_1"><hr /></div>
                     </div>
 
                     <div className="pending">
-                        {connectionRequests.map(({ name, designation, connections }, index) => <ConnectionCard name={name} designation={designation} 
-                        connections={connections} index={index} connectionRequests={connectionRequests} setConnectionRequests={setConnectionRequests}
-                        connectCount={connectCount} setConnectCount={setConnectCount}/>)}
+                        {props.toggle_state===true ? 
+                            connectionRequests.lenght !=0 ?
+                            connectionRequests.map((request, index) =>{
+                                return (
+                                <Fragment key={index}><ConnectionCard 
+                                    name={request.sender.name} 
+                                    connections_length={request.sender.connections.length} 
+                                    company_name={request.sender.company_profile ? request.sender.company_profile.name : ""}
+                                    profile_pic={request.sender.profile_pic ? request.sender.profile_pic : ProfilePic}
+                                    decider={props.toggle_state}
+                                    request_id={request._id}
+                                    onclick={props.getReceivedRequests}
+                                /></Fragment> )
+                            }):null
+                            :
+                            deliveredRequests.length != 0 ?
+                            deliveredRequests.map((request, index) =>{
+                                return (
+                                    <Fragment key={index}><ConnectionCard 
+                                    name={request.user.name} 
+                                    connections_length={request.user.connections.length} 
+                                    index={index}
+                                    company_name={request.user.company_profile ? request.user.company_profile.name : ""}
+                                    profile_pic={request.user.profile_pic ? request.user.profile_pic : ProfilePic}
+                                    decider={props.toggle_state}
+                                    request_id={request.id}
+                                    onclick={props.getSentRequests}
+                                /></Fragment> )
+                            }) : null
+                        }
                     </div>
 
                     <div className="heading-1">
@@ -90,8 +68,10 @@ const Suggestion = () => {
             <div className="employee_container">
                 <div className="emplyoees">
                     {
-                        suggestions.map((suggestion) => {
-                            return <SuggestionCard suggestion={suggestion} />
+                        props.suggestions.map((suggestion, index) => {
+                            return <Fragment key={index}>
+                                <SuggestionCard suggestion={suggestion} oncancel={()=>props.oncancel(suggestion._id)} onclick={props.getSentRequests}/>
+                                </Fragment>
                         })
                     }
                 </div>

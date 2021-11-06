@@ -117,7 +117,10 @@ html{
 }
 .box_1{
     width: 100%;
- 
+}
+.text p{
+    width: max-content;
+    margin: 0 10px 0 10px;
 }
 .box_1 hr{
     background-color: black;
@@ -199,10 +202,13 @@ html{
     color: black;
 }
 .picture{
-    width: 63%;
     height: 70px;
     background-color: black;
     border-radius: 100%;
+}
+.picture > img{
+    height: 100%;
+    border-radius: inherit;
 }
 .pending_name{
       font-weight: 800;
