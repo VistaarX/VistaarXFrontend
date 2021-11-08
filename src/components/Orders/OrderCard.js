@@ -1,23 +1,25 @@
 import React from 'react'
 import '../../stylesheets/Orders/OrderCard.css'
 
-const OrderCard = () => {
+const OrderCard = (props) => {
+    const {product_name, price, image}=props.order.product;
+    
     return (
         <div className="orderCard">
             <div className="orderCard__left">
                 <div className="details">
-                    <img src="https://picsum.photos/200" alt="" />
+                    <img src={image ? image : "https://picsum.photos/200"} alt="" />
                     <div className="info">
-                        <p className="name">Red Scarf</p>
-                        <p className="cost">Rs. 1299</p>
+                        <p className="name">{product_name}</p>
+                        <p className="cost">Rs. {price}</p>
                     </div>
                 </div>
                 <div className="buyer">
-                    <p>Billed to : Person Name/Firm Name</p>
+                    <p>Billed to : {props.order.to ? props.order.to.name : ""}</p>
                 </div>
             </div>
             <div className="orderCard__right">
-                <button>Complete Order</button>
+                <button onClick={()=>props.handleCompleteOrder(props.order._id)}>Complete Order</button>
             </div>
         </div>
     )
