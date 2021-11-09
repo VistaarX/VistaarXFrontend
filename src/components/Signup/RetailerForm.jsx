@@ -9,7 +9,15 @@ import { Typography } from '@mui/material';
 import TextField from '@mui/material/TextField';
 import { Link } from 'react-router-dom';
 
-const RetailerForm = ({ marginLeft, width, values, handleChange, setPage, page, userType, heading }) => {
+const RetailerForm = ({ marginLeft, width, values, setValues, setPage, page, userType, heading }) => {
+    const handleChange = (prop) => (event) => {
+        setValues({...values, page4: {
+            ...values.page4, RetailerForm: {
+                ...values.page4.RetailerForm, [prop]: event.target.value
+            }
+        }}) 
+    }
+
     return (
         <React.Fragment>
             {heading()}
@@ -21,6 +29,7 @@ const RetailerForm = ({ marginLeft, width, values, handleChange, setPage, page, 
                     background: 'white',
                     boxSizing: 'border-box'
                 }}
+                onChange={handleChange('shopName')}
                 placeholder="Ray Ban" required>
             </OutlinedInput>
             <br /><br />
@@ -32,6 +41,7 @@ const RetailerForm = ({ marginLeft, width, values, handleChange, setPage, page, 
                     background: 'white',
                     boxSizing: 'border-box'
                 }}
+                onChange={handleChange('gst')}
                 placeholder="John Snow" required>
             </OutlinedInput>
             <br /><br />
@@ -43,6 +53,7 @@ const RetailerForm = ({ marginLeft, width, values, handleChange, setPage, page, 
                     background: 'white',
                     boxSizing: 'border-box'
                 }}
+                onChange={handleChange('productCategory')}
                 placeholder="Ray Ban" required>
             </OutlinedInput>
             <br /><br />
@@ -59,6 +70,7 @@ const RetailerForm = ({ marginLeft, width, values, handleChange, setPage, page, 
                         +91
                     </InputAdornment>
                 }
+                onChange={handleChange('phone')}
                 inputProps={{ pattern: "[0-9]{10}" }} required>
             </OutlinedInput>
             <br /><br />
@@ -71,6 +83,7 @@ const RetailerForm = ({ marginLeft, width, values, handleChange, setPage, page, 
                     boxSizing: 'border-box'
                 }}
                 placeholder="Email"
+                onChange={handleChange('email')}
                 startAdornment={
                     <InputAdornment position="start">
                         <AlternateEmailIcon />
@@ -99,6 +112,7 @@ const RetailerForm = ({ marginLeft, width, values, handleChange, setPage, page, 
                 rows={4}
                 rowsMax={6}
                 style={{ width: '100%' }}
+                onChange={handleChange('address')}
                 required
             />
             <br /><br />
@@ -109,6 +123,7 @@ const RetailerForm = ({ marginLeft, width, values, handleChange, setPage, page, 
                 rows={4}
                 rowsMax={6}
                 style={{ width: '100%' }}
+                onChange={handleChange('about')}
                 required
             />
             <br /><br />

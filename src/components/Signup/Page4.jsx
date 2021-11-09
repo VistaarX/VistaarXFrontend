@@ -6,10 +6,10 @@ import ManufacturerForm from './ManufacturerForm';
 import RetailerForm from './RetailerForm';
 
 
-const Page4 = ({ marginLeft, width, values, handleChange, setPage, handleClickShowPassword, handleMouseDownPassword, page, 
+const Page4 = ({ marginLeft, width, values, setValues, setPage, handleClickShowPassword, handleMouseDownPassword, page, 
     userType, userTypes }) => {
 
-    const heading = () => <Typography style={{
+    const heading = () => (<Typography style={{
             paddingBottom: '30px',
             paddingLeft: '10px',
             textAlign: 'center',
@@ -17,17 +17,17 @@ const Page4 = ({ marginLeft, width, values, handleChange, setPage, handleClickSh
             boxSizing: 'border-box',
             fontSize: '48px'
         }} fontWeight="800">
-            <Typography style={{ fontWeight: '500', fontSize: '30px', display: 'inline-block' }}>Register as </Typography>&#160;{userType}
-        </Typography>
+            <span style={{ fontWeight: '800', fontSize: '30px', display: 'inline-block' }}>Register as </span>&#160;{userType}
+        </Typography>)
     
-    if(userType===userTypes[0]) return <ManufacturerForm values={values} handleChange={handleChange} setPage={setPage} 
-    page={page} heading={heading} userType={userType}/>
+    if(userType===userTypes[0]) return <ManufacturerForm values={values} setPage={setPage} 
+    page={page} heading={heading} userType={userType} setValues={setValues}/>
 
-    else if(userType===userTypes[1]) return <DistributorForm values={values} handleChange={handleChange} setPage={setPage} 
-    page={page} heading={heading} userType={userType}/>
+    else if(userType===userTypes[1]) return <DistributorForm values={values} setPage={setPage} 
+    page={page} heading={heading} userType={userType} setValues={setValues}/>
 
-    else if(userType===userTypes[2]) return <RetailerForm values={values} handleChange={handleChange} setPage={setPage} 
-    page={page} heading={heading} userType={userType}/>
+    else if(userType===userTypes[2]) return <RetailerForm values={values} setPage={setPage} 
+    page={page} heading={heading} userType={userType} setValues={setValues}/>
 
     else return <>
     </>

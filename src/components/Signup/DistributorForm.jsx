@@ -9,7 +9,15 @@ import { Typography } from '@mui/material';
 import TextField from '@mui/material/TextField';
 import { Link } from 'react-router-dom';
 
-const DistributorForm = ({ marginLeft, width, values, handleChange, setPage, page, userType, heading }) => {
+const DistributorForm = ({ marginLeft, width, values, setValues, setPage, page, userType, heading }) => {
+    const handleChange = (prop) => (event) => {
+        setValues({...values, page4: {
+            ...values.page4, DistributorForm: {
+                ...values.page4.DistributorForm, [prop]: event.target.value
+            }
+        }}) 
+    }
+
     return (
         <React.Fragment>
             {heading()}
@@ -21,6 +29,7 @@ const DistributorForm = ({ marginLeft, width, values, handleChange, setPage, pag
                     background: 'white',
                     boxSizing: 'border-box'
                 }}
+                onChange={handleChange('companyName')}
                 placeholder="Ray Ban" required>
             </OutlinedInput>
             <br /><br />
@@ -32,6 +41,7 @@ const DistributorForm = ({ marginLeft, width, values, handleChange, setPage, pag
                     background: 'white',
                     boxSizing: 'border-box'
                 }}
+                onChange={handleChange('ownerName')}
                 placeholder="John Snow" required>
             </OutlinedInput>
             <br /><br />
@@ -43,6 +53,7 @@ const DistributorForm = ({ marginLeft, width, values, handleChange, setPage, pag
                     background: 'white',
                     boxSizing: 'border-box'
                 }}
+                onChange={handleChange('productCategory')}
                 placeholder="Ray Ban" required>
             </OutlinedInput>
             <br /><br />
@@ -54,6 +65,7 @@ const DistributorForm = ({ marginLeft, width, values, handleChange, setPage, pag
                     background: 'white',
                     boxSizing: 'border-box'
                 }}
+                onChange={handleChange('gst')}
                 placeholder="John Snow" required>
             </OutlinedInput>
             <br /><br />
@@ -65,6 +77,7 @@ const DistributorForm = ({ marginLeft, width, values, handleChange, setPage, pag
                     background: 'white',
                     boxSizing: 'border-box'
                 }}
+                onChange={handleChange('turnover')}
                 placeholder="Rs. 1.87 Cr" required>
             </OutlinedInput>
             <br /><br />
@@ -81,6 +94,7 @@ const DistributorForm = ({ marginLeft, width, values, handleChange, setPage, pag
                         +91
                     </InputAdornment>
                 }
+                onChange={handleChange('phone')}
                 inputProps={{ pattern: "[0-9]{10}" }} required>
             </OutlinedInput>
             <br /><br />
@@ -97,7 +111,9 @@ const DistributorForm = ({ marginLeft, width, values, handleChange, setPage, pag
                     <InputAdornment position="start">
                         <AlternateEmailIcon />
                     </InputAdornment>
-                } required>
+                }
+                onChange={handleChange('email')}
+                required>
             </OutlinedInput>
             <br /><br />
 
@@ -108,6 +124,7 @@ const DistributorForm = ({ marginLeft, width, values, handleChange, setPage, pag
                     background: 'white',
                     boxSizing: 'border-box'
                 }}
+                onChange={handleChange('legalStatus')}
                 required>
             </OutlinedInput>
             <br /><br />
@@ -119,6 +136,7 @@ const DistributorForm = ({ marginLeft, width, values, handleChange, setPage, pag
                     background: 'white',
                     boxSizing: 'border-box'
                 }}
+                onChange={handleChange('targetAreas')}
                 required>
             </OutlinedInput>
             <br /><br />
@@ -143,6 +161,7 @@ const DistributorForm = ({ marginLeft, width, values, handleChange, setPage, pag
                 rows={4}
                 rowsMax={6}
                 style={{ width: '100%' }}
+                onChange={handleChange('address')}
                 required
             />
             <br /><br />
@@ -153,6 +172,7 @@ const DistributorForm = ({ marginLeft, width, values, handleChange, setPage, pag
                 rows={4}
                 rowsMax={6}
                 style={{ width: '100%' }}
+                onChange={handleChange('about')}
                 required
             />
             <br /><br />
