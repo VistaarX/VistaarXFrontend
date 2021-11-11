@@ -1,26 +1,156 @@
-.LandingPage {
-  background-color: #e5e5e5;
-  /* height: 100%; */
-  width: 100%;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  border-bottom: #e5e5e5 solid 50px;
-  /* position: fixed; */
+.landingPage {
+    width: 70%;
+    margin: auto;
+    background-color: white;
+    padding: 25px;
 }
 
-::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
+.landingPage > .landingPage__product {
+    margin-bottom: 25px;
 }
-::-webkit-scrollbar-thumb {
-  background: #c2c2c2;
-  border-radius: 30px;
+
+.landingPage > .landingPage__product > .heading {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
-::-webkit-scrollbar-thumb:hover {
-  background: #8a8a8a;
+ 
+.landingPage > .landingPage__product > .heading > .headingText {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 36px;
+    color: #000000;
 }
-::-webkit-scrollbar-track {
-  background: #80272700;
-  border-radius: 30px;
-  /* box-shadow: inset 0px 0px 0px 0px #ffffff; */
+
+.landingPage > .landingPage__people > .heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
 }
+
+.landingPage > .landingPage__people > .heading > .headingText {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 36px;
+    color: #000000;
+}
+
+.landingPage > .landingPage__people {
+    margin-bottom: 25px;
+}
+
+.landingPage > .landingPage__company > .heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}
+
+.landingPage > .landingPage__company > .heading > .headingText {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 36px;
+    color: #000000;
+}
+
+.landingPage > .landingPage__product > .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.landingPage > .landingPage__people > .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.landingPage > .landingPage__company > .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+ 
+.landingPage > .landingPage__product > .content > .container {
+    margin: auto;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    margin-top: 25px;
+}
+
+.landingPage > .landingPage__people > .content > .container {
+    margin: auto;
+    display: grid;
+    grid-template-columns: auto auto auto ;
+    margin-top: 25px;
+}
+
+.landingPage > .landingPage__company > .content > .container {
+    margin: auto;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto ;
+    margin-top: 25px;
+}
+
+@media (max-width: 1080px) and (min-width: 0px) {
+
+    .landingPage {
+        width: 100%;
+        margin: auto;
+        background-color: white;
+        padding: 25px;
+    }
+
+    .landingPage > .landingPage__product > .content > .container {
+        margin: auto;
+        display: grid;
+        grid-template-columns: auto auto;
+        margin-top: 25px;
+    }
+
+    .landingPage > .landingPage__people > .content > .container {
+        margin: auto;
+        display: grid;
+        grid-template-columns: auto;
+        margin-top: 25px;
+    }
+
+    .landingPage > .landingPage__company > .content > .container {
+        margin: auto;
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+    }
+}
+
+
+/* @media (max-width: 1080px) and (min-width: 0px) {
+
+    .landingPage {
+        width: 100%;
+        margin: auto;
+        background-color: white;
+        padding: 25px;
+    }
+
+    .landingPage > .landingPage__product > .content > .container {
+        margin: auto;
+        display: grid;
+        grid-template-columns: auto auto;
+        margin-top: 25px;
+    }
+
+    .landingPage > .landingPage__people > .content > .container {
+        margin: auto;
+        display: grid;
+        grid-template-columns: auto auto;
+        margin-top: 25px;
+    }
+} */
