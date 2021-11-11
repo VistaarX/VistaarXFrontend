@@ -9,7 +9,15 @@ import { Typography } from '@mui/material';
 import TextField from '@mui/material/TextField';
 import { Link } from 'react-router-dom';
 
-const ManufacturerForm = ({ marginLeft, width, values, handleChange, setPage, page, userType, heading }) => {
+const ManufacturerForm = ({ marginLeft, width, values, setValues, setPage, page, userType, heading }) => {
+    const handleChange = (prop) => (event) => {
+        setValues({...values, page4: {
+            ...values.page4, ManufacturerForm: {
+                ...values.page4.ManufacturerForm, [prop]: event.target.value
+            }
+        }}) 
+    }
+
     return (
         <React.Fragment>
             {heading()}
@@ -21,6 +29,7 @@ const ManufacturerForm = ({ marginLeft, width, values, handleChange, setPage, pa
                     background: 'white',
                     boxSizing: 'border-box'
                 }}
+                onChange={handleChange('companyName')}
                 placeholder="Ray Ban" required>
             </OutlinedInput>
             <br /><br />
@@ -32,6 +41,7 @@ const ManufacturerForm = ({ marginLeft, width, values, handleChange, setPage, pa
                     background: 'white',
                     boxSizing: 'border-box'
                 }}
+                onChange={handleChange('gst')}
                 placeholder="John Snow" required>
             </OutlinedInput>
             <br /><br />
@@ -43,6 +53,7 @@ const ManufacturerForm = ({ marginLeft, width, values, handleChange, setPage, pa
                     background: 'white',
                     boxSizing: 'border-box'
                 }}
+                onChange={handleChange('productCategory')}
                 placeholder="Ray Ban" required>
             </OutlinedInput>
             <br /><br />
@@ -54,6 +65,7 @@ const ManufacturerForm = ({ marginLeft, width, values, handleChange, setPage, pa
                     background: 'white',
                     boxSizing: 'border-box'
                 }}
+                onChange={handleChange('turnover')}
                 placeholder="Rs. 1.87 Cr" required>
             </OutlinedInput>
             <br /><br />
@@ -70,6 +82,7 @@ const ManufacturerForm = ({ marginLeft, width, values, handleChange, setPage, pa
                         +91
                     </InputAdornment>
                 }
+                onChange={handleChange('phone')}
                 inputProps={{ pattern: "[0-9]{10}" }} required>
             </OutlinedInput>
             <br /><br />
@@ -82,6 +95,7 @@ const ManufacturerForm = ({ marginLeft, width, values, handleChange, setPage, pa
                     boxSizing: 'border-box'
                 }}
                 placeholder="Email"
+                onChange={handleChange('email')}
                 startAdornment={
                     <InputAdornment position="start">
                         <AlternateEmailIcon />
@@ -97,6 +111,7 @@ const ManufacturerForm = ({ marginLeft, width, values, handleChange, setPage, pa
                     background: 'white',
                     boxSizing: 'border-box'
                 }}
+                onChange={handleChange('legalStatus')}
                 required>
             </OutlinedInput>
             <br /><br />
@@ -108,6 +123,7 @@ const ManufacturerForm = ({ marginLeft, width, values, handleChange, setPage, pa
                     background: 'white',
                     boxSizing: 'border-box'
                 }}
+                onChange={handleChange('mainMarkets')}
                 required>
             </OutlinedInput>
             <br /><br />
@@ -119,6 +135,7 @@ const ManufacturerForm = ({ marginLeft, width, values, handleChange, setPage, pa
                     background: 'white',
                     boxSizing: 'border-box'
                 }}
+                onChange={handleChange('trademark')}
                 placeholder="1234567890" required>
             </OutlinedInput>
             <br /><br />
@@ -143,6 +160,7 @@ const ManufacturerForm = ({ marginLeft, width, values, handleChange, setPage, pa
                 rows={4}
                 rowsMax={6}
                 style={{ width: '100%' }}
+                onChange={handleChange('address')}
                 required
             />
             <br /><br />
@@ -153,6 +171,7 @@ const ManufacturerForm = ({ marginLeft, width, values, handleChange, setPage, pa
                 rows={4}
                 rowsMax={6}
                 style={{ width: '100%' }}
+                onChange={handleChange('about')}
                 required
             />
             <br /><br />

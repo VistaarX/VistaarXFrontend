@@ -1,42 +1,44 @@
-import React, { useState } from 'react'
+import React, { Fragment } from 'react'
+import { acceptConnectionReq, cancelSentReq, declineConnectionReq } from '../../../Api/user/userActions';
 
-const ConnectionCard = ({ name, designation, connections, index, connectCount, connectionRequests, setConnectCount, setConnectionRequests }) => {
+const ConnectionCard = ({ name, connections_length, company_name, profile_pic, decider, request_id, onclick}) => {
+    const handleConnect=async ()=>{
+        await acceptConnectionReq(request_id);
+        onclick();
+        console.log("Request accepted");
+    }
+    const handleDecline=async ()=>{
+        await declineConnectionReq(request_id);
+        onclick();
+        console.log("Request declined");
+    }
+    const handleRevoke=async ()=>{
+        await cancelSentReq(request_id);
+        onclick();
+        console.log("Request revoked");
+    }
     return <div className="pending_box">
         <div className="pending_pic">
             <div className="picture">
-                {
-                    //Add image tag with src=route to profilePic
-                }
+                <img src={profile_pic} alt="Profile picture"></img>
             </div>
         </div>
 
         <div className="pending_info">
             <p className="pending_name">{name}</p>
-            <p className="pending_work">{designation}</p>
-            <p className="pending_connections">{`${connections} connections`}</p>
+            <p className="pending_work">Owner of: {company_name}</p>
+            <p className="pending_connections">{`${connections_length} connections`}</p>
         </div>
 
         <div className="pending_buttons">
-            <button className="pending_button connect_" onClick={() => {
-                let indexToRemove = index
-                // setConnectionRequests(connectionRequests.filter(item => item !== connectionRequests[indexToRemove]))
-                setConnectCount(connectCount - 1)
-                //setConnectionsRequest(get request)
+            {decider===true ? 
+                <Fragment>
+                    <button className="pending_button connect_" onClick={handleConnect}>CONNECT</button>
+                    <button className="pending_button decline_" onClick={handleDecline}>DECLINE</button>
+                </Fragment>
+                :
+                <button className="pending_button decline_" onClick={handleRevoke}>REVOKE</button>
             }
-
-            }>CONNECT{
-                    // use ? statement, run query on database to check if user is connected and change text accordingly
-                }
-            </button>
-
-            <button className="pending_button decline_" onClick={() => {
-                let indexToRemove = index
-                setConnectionRequests(connectionRequests.filter(item => item !== connectionRequests[indexToRemove]))
-                setConnectCount(connectCount - 1)
-            }
-            }>DECLINE
-            </button>
-
         </div>
 
     </div>

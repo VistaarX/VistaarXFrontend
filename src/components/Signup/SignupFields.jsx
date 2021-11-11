@@ -25,10 +25,10 @@ const SignupFields = ({ marginLeft, width, height, userTypes, values, setValues,
     )
     else if (page === 4) return (
       <Page4 values={values} handleChange={handleChange}
-        page={page} userTypes={userTypes} setUserType={setUserType} userType={userType}/>
+        page={page} userTypes={userTypes} setUserType={setUserType} userType={userType} setValues={setValues}/>
     )
     else if (page === 5) return (
-      <Page5 />
+      <Page5 values={values} setValues={setValues}/>
     )
   }
 

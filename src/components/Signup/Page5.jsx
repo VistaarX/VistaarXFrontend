@@ -2,7 +2,13 @@ import React from 'react'
 import '../../stylesheets/CreatePost/CreatePost.css'
 import { Button, OutlinedInput } from '@mui/material';
 
-const page5 = () => {
+const page5 = ({values, setValues}) => {
+    const handleChange = prop => event => {
+        setValues({...values, page5: {
+            ...values.page5, [prop]: event.target.value
+        }})
+    }
+
     return (
         <div className="signup createPost" style={{width: '100%', margin: '0'}}>
             <div className="createPost__header">
@@ -18,6 +24,7 @@ const page5 = () => {
                     boxSizing: 'border-box'
                 }}
                 required
+                onChange={handleChange('title')}
                 placeholder="Ray Ban">
             </OutlinedInput>
             <br /><br />
@@ -29,6 +36,7 @@ const page5 = () => {
                     background: 'white',
                     boxSizing: 'border-box'
                 }}
+                onChange={handleChange('price')}
                 required>
             </OutlinedInput>
             <br /><br />
@@ -37,7 +45,7 @@ const page5 = () => {
             <div className="createPost__body">
                 <div className="createPost__container">
                     <div className="content">
-                        <input type="file" className="custom-file-input"/>
+                        <input type="file" className="custom-file-input" onChange={handleChange('images')}/>
                         <p className="text">Photo/Video</p>
                         <p className="dnd">or drag and drop</p>
                     </div>
