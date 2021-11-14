@@ -14,24 +14,60 @@ const Signup = () => {
     const [page, setPage] = React.useState(1)
     const [wantTo, setWantTo] = React.useState(wantToOptions[1])
     const [userType, setUserType] = React.useState(userTypes[1])
-    const [values, setValues] = React.useState({
-        name: '',
-        email: '',
-        phone: '',
-        password: '',
-        gender: 'Male',
-        showPassword: false,
-        verificationCode: '',
-        wantTo: wantToOptions[1],
-        userType: userType,
-        page4: [{
-            formName: 'ManufacturerForm'
-        }, {
-            formName: 'DistributorForm'
-        }, {
-            formName: 'RetailerForm'
-        }]
-      });
+
+    const initialValues = {
+      name: '',
+      email: '',
+      phone: '',
+      password: '',
+      gender: 'Male',
+      showPassword: false,
+      verificationCode: '',
+      wantTo: wantToOptions[1],
+      userType: userType,
+      page4: {
+        ManufacturerForm: {
+          companyName: '',
+          productCategory: '',
+          gst: '',
+          turnover: '',
+          phone: '',
+          email: '',
+          trademark: '',
+          legalStatus: '',
+          mainMarkets: '',
+          address: '',
+          about: ''
+        }, DistributorForm: {
+          companyName: '',
+          ownerName: '',
+          productCategory: '',
+          gst: '',
+          turnover: '',
+          phone: '',
+          email: '',
+          legalStatus: '',
+          targetAreas: '',
+          address: '',
+          about: ''
+        }, RetailerForm: {
+          shopName: '',
+          gst: '',
+          productCategory: '',
+          phone: '',
+          email: '',
+          address: '',
+          about: ''
+        }
+      },
+      page5: {
+        title: '',
+        price: '',
+        images: ''
+      }
+    }
+
+    const [values, setValues] = React.useState(initialValues)
 
     React.useEffect(()=>{
       setValues({...values, "wantTo": wantTo})
@@ -53,31 +89,16 @@ const Signup = () => {
     };
 
     const resetValues = () => {
-        setValues({
-            name: '',
-            email: '',
-            phone: '',
-            password: '',
-            gender: 'Male',
-            showPassword: false,
-            verificationCode: '',
-            wantTo: wantToOptions[1],
-            userType: userType,
-            page4: [{
-                formName: 'ManufacturerForm'
-            }, {
-                formName: 'DistributorForm'
-            }, {
-                formName: 'RetailerForm'
-            }]
-          })
+        setValues(initialValues)
     }
 
     const onSubmit = event => {
         event.preventDefault()
         // Signup 
         handleSignup(values)
-
+        console.log(values)
+        if (page===3)
+          setValues({...values, userType: userType})
         if(page<5)
           setPage(page+1)
         else if (page===5) {
@@ -90,11 +111,10 @@ const Signup = () => {
     if (window.innerWidth<=1024) 
     return (
         <div className='signupBox'>
-
             <SignupFields marginLeft='5%' width='90%' height='100%' userTypes={userTypes} onSubmit={onSubmit} values={values} 
             setValues={setValues} page={page} setPage={setPage} handleChange={handleChange} handleClickShowPassword={handleClickShowPassword}
             handleMouseDownPassword={handleMouseDownPassword} wantToOptions={wantToOptions} setWantTo={setWantTo} wantTo={wantTo}
-            userType={userType} setUserType={setUserType} userTypes={userTypes} height='100vh'/>
+            userType={userType} setUserType={setUserType}/>
         </div>
     )
 
@@ -103,7 +123,7 @@ const Signup = () => {
             <SignupFields marginLeft='5%' width='90%' height='100%' userTypes={userTypes} onSubmit={onSubmit} values={values} 
             setValues={setValues} page={page} setPage={setPage} handleChange={handleChange} handleClickShowPassword={handleClickShowPassword}
             handleMouseDownPassword={handleMouseDownPassword} wantToOptions={wantToOptions} setWantTo={setWantTo} wantTo={wantTo}
-            userType={userType} setUserType={setUserType} userTypes={userTypes} />
+            userType={userType} setUserType={setUserType} />
             <br/>
         </div>
     )
