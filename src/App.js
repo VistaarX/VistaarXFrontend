@@ -12,6 +12,7 @@ import Manufacturer from './components/User/Manufacturer/Manufacturer'
 import Orders from './components/Orders/Orders'
 import Network from './components/Network/Network'
 import Feed from './components/Feed/Feed'
+import Connections from './components/Connections/Connections'
 
 
 const App = () => {
@@ -49,6 +50,9 @@ const App = () => {
         </Route>
         <Route path="/network" exact>
           <Network/>
+        </Route>
+        <Route path="/user/employee/:id/connections" exact>
+          <Connections/>
         </Route>
         
       </Switch>

@@ -1,0 +1,52 @@
+.connections {
+    width: 60%;
+    margin: auto;
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 25px;
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: 50px;
+}
+
+.connections > .header {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 48px;
+    color: #000000; 
+    margin-bottom: 25px;
+}
+
+.connections > .search {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    background-color: #EEF3F8;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+}
+
+.connections > .search > input {
+    margin-left: 5px;
+    width: 100%;
+    padding: 5px;
+    border: none;
+    background-color: #EEF3F8;
+}
+
+.connections > .search > input:focus {
+    outline: none;
+}
+
+@media (max-width: 560px) and (min-width: 0px) {
+    .connections {
+        width: 100%;
+        padding: 25px;
+    }
+}

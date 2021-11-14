@@ -10,18 +10,24 @@ const LandingPage = () => {
     const suggestions = [{
         name: 'Mrinal',
         connections: '400',
-        companyName: 'VistaarX',
-        img: "https://picsum.photos/200"
+        company_profile: {
+            name: 'VistaarX',
+        },
+        profile_pic: "https://picsum.photos/200"
     }, {
         name: 'Raj',
         connections: '500',
-        companyName: 'VistaarX',
-        img: "https://picsum.photos/200"
+        company_profile: {
+            name: 'VistaarX',
+        },
+        profile_pic: "https://picsum.photos/200"
     }, {
         name: 'Deepanshu',
         connections: '600',
-        companyName: 'VistaarX',
-        img: "https://picsum.photos/200"
+        company_profile: {
+            name: 'VistaarX',
+        },
+        profile_pic: "https://picsum.photos/200"
     }]
 
 
