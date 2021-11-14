@@ -1,6 +1,7 @@
 import axios from "axios";
+const { REACT_APP_API_URL } = require("../config");
 
-const base = "https://vistaarx-backend.herokuapp.com/api/auth";
+const base = `${REACT_APP_API_URL}/api/auth`;
 
 const authAxios = axios.create({
   baseURL: base,

@@ -1,6 +1,7 @@
 import createAxios from "axios";
+const { REACT_APP_API_URL } = require("../../config");
 
-const base = "http://localhost:5000/api/profile";
+const base = `${REACT_APP_API_URL}/api/profile`;
 
 const axios = createAxios.create({
   baseURL: base,

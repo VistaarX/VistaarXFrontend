@@ -1,6 +1,7 @@
 import createAxios from "axios";
+import { REACT_APP_API_URL } from "../../config";
 
-const base = "https://vistaarx-backend.herokuapp.com/api/user";
+const base = `${REACT_APP_API_URL}/api/user`;
 
 const axios = createAxios.create({
   baseURL: base,

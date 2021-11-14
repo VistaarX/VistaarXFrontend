@@ -17,7 +17,7 @@ const SuggestionCard = (props) => {
        <img src={props.suggestion.profile_pic ? props.suggestion.profile_pic : null} alt="" />
        <div className="info">
            <h1 className="name">{props.suggestion.name}</h1>
-           <h3 className="companyName">{props.suggestion.company_profile.name}</h3>
+           <h3 className="companyName">{props.suggestion.company_profile ? props.suggestion.company_profile.name : ""}</h3>
            <div className="connections">
                <h2 className="number">{props.suggestion.connections.length}</h2>
                <p>Connections</p>
