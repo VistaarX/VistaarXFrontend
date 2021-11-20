@@ -5,9 +5,7 @@ import Post from "../Post"
 const Employee = () => {
     const [user, setUser]=useState(null);
     useEffect(async()=>{
-        console.log("USEEFFECT")
         let data=await userDetails();
-        console.log(data.data.user)
         setUser(data.data.user);
     },[]);
     if(user!==null){

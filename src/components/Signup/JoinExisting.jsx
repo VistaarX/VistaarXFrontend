@@ -8,7 +8,6 @@ const InputVerificationCode = ({ setPage, setValues, values }) => {
     const [entered, setEntered] = useState(false)
 
     const verify = input => {
-        console.log(input)
         setEntered(true)
     }
 

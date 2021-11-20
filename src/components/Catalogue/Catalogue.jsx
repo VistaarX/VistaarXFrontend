@@ -12,7 +12,6 @@ const Catalogue = () => {
         let catalouge=await getCatalouge(user['data']._id)
         setCatalouge(catalouge['data'])
     },[])
-    console.log(catalouge)
     return (
         <div className="catalog">
             <div className="catalog__header">

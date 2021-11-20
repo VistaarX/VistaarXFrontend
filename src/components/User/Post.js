@@ -6,58 +6,64 @@ import { fetchByID } from "../../Api/post/fetchPost";
 import { get_diff_in_dates } from "../../config";
 const Post = ({posts_array, company}) => {
   const [posts, setPosts]=useState([]);
-  useEffect(async()=>{
-    posts_array.map(async(postID)=>{
-      let post_info=await fetchByID(postID);
-      console.log(post_info)
-      setPosts((prevPost)=>[...prevPost, post_info.data.post]);
-    })
+  useEffect(()=>{
+    async function fun(){
+      posts_array.map(async(postID)=>{
+        let post_info=await fetchByID(postID);
+        setPosts((prevPost)=>[...prevPost, post_info.data.post]);
+      })
+    }
+    fun();
   },[]);
 
   const getDiff=(date)=>{
-    const res=get_diff_in_dates(date);
-    if(res.hours!=0){
+    const oldDate=new Date(date);
+    const res=get_diff_in_dates(oldDate);
+    if(typeof res.hours!=="undefined"){
       return res.hours+" Hours";
     }
-    else if(res.days!=0){
+    else if(typeof res.days!=="undefined"){
       return res.days+" Days";
     }
-    else if(res.months!=0){
+    else if(typeof res.months!=="undefined"){
       return res.months+" Months";
     }
-    else if(res.years!=0){
+    else if(typeof res.years!=="undefined"){
       return res.years+" Years";
     }
   }
-
-  return (
-    <div className="post">
-      {posts.map((post, index)=>{
-
-        return(
-          <Fragment key={index}>
-            <div className="post__header">
-              <img src= {sample2} height="60px" width="60px" alt=""/>
-              <div className="post__headerInfo">
-                  <h3>{post.user.name}</h3>
-                  <h5>{company}</h5>
-                  <h6>{getDiff(post.user.createdAt)} ago</h6>
+  if(posts.length!=0){
+    return (
+      <div className="post">
+        {posts.map((post, index)=>{
+          return(
+            <Fragment key={index}>
+              <div className="post__header">
+                <img src= {sample2} height="60px" width="60px" alt=""/>
+                <div className="post__headerInfo">
+                    <h3>{post.user.name}</h3>
+                    <h5>{company}</h5>
+                    <h6>{post ? getDiff(post.createdAt) : null} ago</h6>
+                </div>
+                <img src= {option} width="25px" alt=""/>
               </div>
-              <img src= {option} width="25px" alt=""/>
-            </div>
-            <br/>
-            <p>
-              {post.content}
-            </p>
-            
-            <div className="post__image">
-              <img src={post.image ? post.image : ""} alt="Post image"></img>
-            </div>
-        </Fragment>
-        )
-      })}
-    </div>
-  );
+              <br/>
+              <p>
+                {post.content}
+              </p>
+              
+              <div className="post__image">
+                <img src={post.image ? post.image : ""} alt="Post image"></img>
+              </div>
+          </Fragment>
+          )
+        })}
+      </div>
+    );
+    }
+    else{
+      return <p>Loading...</p>
+    }
 };
 
 export default Post;

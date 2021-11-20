@@ -8,11 +8,14 @@ import { createPost } from '../../Api/post/postActions';
 const CreatePost = () => {
     let [user_id, set_user_id]=useState(null)
     let post_content_ref=useRef(null);
-    useEffect(async()=>{
-        user_id=await userDetails();
-        user_id=await user_id['data']
-        set_user_id(user_id)
-    },[])
+    useEffect(()=>{
+        async function fun(){
+            user_id=await userDetails();
+            user_id=await user_id['data']
+            set_user_id(user_id)
+        }
+        fun();
+    },[user_id])
     const handleSubmitPost=async()=>{
         let content_text=post_content_ref.current.value;
         await createPost({
