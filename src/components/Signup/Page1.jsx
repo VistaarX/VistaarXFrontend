@@ -13,7 +13,13 @@ import { Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 
-const Page1 = ({ marginLeft, width, values, handleChange, setPage, handleClickShowPassword, handleMouseDownPassword, page }) => {
+const Page1 = ({ marginLeft, width, values, setPage, setValues, handleClickShowPassword, handleMouseDownPassword, page }) => {
+
+    const handleChange = (prop) => (event) => {
+        setValues({...values, signup_values: {
+            ...values.signup_values, [prop]:event.target.value
+        }}) 
+    }
     
     return (
         <React.Fragment>

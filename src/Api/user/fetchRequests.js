@@ -21,7 +21,7 @@ const fetchUserByID= async(id) => {
 
 const userDetails = async() => {
     try{
-        const res = await axios.get(`/me`)
+        const res = await axios.get('/me')
         return res
     } catch (err) {
         console.log(err)

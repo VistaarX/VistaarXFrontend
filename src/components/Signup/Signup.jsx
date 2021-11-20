@@ -16,14 +16,18 @@ const Signup = () => {
     const [userType, setUserType] = React.useState(userTypes[1])
 
     const initialValues = {
-      name: '',
-      email: '',
-      phone: '',
-      password: '',
+      signup_values:{
+        name: '',
+        email: '',
+        phone: '',
+        password: '',
+      },
       gender: 'Male',
       showPassword: false,
-      verificationCode: '',
       wantTo: wantToOptions[1],
+      verificationCode: {
+        code:''
+      },
       userType: userType,
       page4: {
         ManufacturerForm: {
@@ -73,9 +77,6 @@ const Signup = () => {
       setValues({...values, "wantTo": wantTo})
     }, [wantTo])
   
-    const handleChange = (prop) => (event) => {
-      setValues({ ...values, [prop]: event.target.value });
-    };
   
     const handleClickShowPassword = () => {
       setValues({
@@ -92,13 +93,11 @@ const Signup = () => {
         setValues(initialValues)
     }
 
-    const onSubmit = event => {
+    const onSubmit = async (event) => {
         event.preventDefault()
         // Signup 
-        handleSignup(values)
+        await handleSignup(values)
         console.log(values)
-        if (page===3)
-          setValues({...values, userType: userType})
         if(page<5)
           setPage(page+1)
         else if (page===5) {
@@ -112,7 +111,7 @@ const Signup = () => {
     return (
         <div className='signupBox'>
             <SignupFields marginLeft='5%' width='90%' height='100%' userTypes={userTypes} onSubmit={onSubmit} values={values} 
-            setValues={setValues} page={page} setPage={setPage} handleChange={handleChange} handleClickShowPassword={handleClickShowPassword}
+            setValues={setValues} page={page} setPage={setPage} handleClickShowPassword={handleClickShowPassword}
             handleMouseDownPassword={handleMouseDownPassword} wantToOptions={wantToOptions} setWantTo={setWantTo} wantTo={wantTo}
             userType={userType} setUserType={setUserType}/>
         </div>
@@ -121,7 +120,7 @@ const Signup = () => {
     else return (
         <div className='signupBox'>
             <SignupFields marginLeft='5%' width='90%' height='100%' userTypes={userTypes} onSubmit={onSubmit} values={values} 
-            setValues={setValues} page={page} setPage={setPage} handleChange={handleChange} handleClickShowPassword={handleClickShowPassword}
+            setValues={setValues} page={page} setPage={setPage} handleClickShowPassword={handleClickShowPassword}
             handleMouseDownPassword={handleMouseDownPassword} wantToOptions={wantToOptions} setWantTo={setWantTo} wantTo={wantTo}
             userType={userType} setUserType={setUserType} />
             <br/>

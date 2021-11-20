@@ -4,7 +4,7 @@ import { Button } from '@mui/material';
 import { Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 
-const InputVerificationCode = ({ setPage }) => {
+const InputVerificationCode = ({ setPage, setValues, values }) => {
     const [entered, setEntered] = useState(false)
 
     const verify = input => {
@@ -12,8 +12,17 @@ const InputVerificationCode = ({ setPage }) => {
         setEntered(true)
     }
 
+    const handleChange = () => {
+        setPage(5);
+        setValues({...values, verificationCode: {
+            code :entered
+        }}) 
+    }
+
     const returnEnabledButton = () => {
-        return <Button style={{
+        return <Button 
+            type="submit"
+            style={{
             background: "#0A66C2",
             color: 'white',
             textTransform: 'none',
@@ -23,7 +32,9 @@ const InputVerificationCode = ({ setPage }) => {
             fontSize: '30px',
             boxSizing: 'border-box',
             paddingTop: '10px'
-        }} onClick={() => setPage(5)}>
+            }} 
+            onClick={() => handleChange()}
+        >
             Next
         </Button>
     }

@@ -8,8 +8,8 @@ import FormControl from '@mui/material/FormControl';
 import JoinExisting from './JoinExisting';
 import { Link } from 'react-router-dom';
 
-const Page3 = ({ marginLeft, width, values, handleChange, setPage, handleClickShowPassword, 
-    handleMouseDownPassword, page, userType, userTypes, setUserType, wantTo, wantToOptions }) => {
+const Page3 = ({ marginLeft, width, values, setPage, handleClickShowPassword, 
+    handleMouseDownPassword, page, userType, userTypes, setUserType, wantTo, wantToOptions, setValues }) => {
 
     const handleUserTypeChange = event => {
         setUserType(event.target.value)
@@ -64,9 +64,9 @@ const Page3 = ({ marginLeft, width, values, handleChange, setPage, handleClickSh
         </React.Fragment>
     )
     else return (
-        <div style={{display: 'table-cell', verticalAlign: 'middle', width: '100vw', height: '95vh'}}>
-            <JoinExisting page={page} setPage={setPage}/>
-        </div>
+        <form style={{display: 'table-cell', verticalAlign: 'middle', width: '100vw', height: '95vh'}}>
+            <JoinExisting page={page} setPage={setPage} setValues={setValues} values={values}/>
+        </form>
     )
 }
 
