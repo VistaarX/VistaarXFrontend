@@ -29,7 +29,7 @@ const ManufacturerForm = ({ marginLeft, width, values, setValues, setPage, page,
                     background: 'white',
                     boxSizing: 'border-box'
                 }}
-                onChange={handleChange('companyName')}
+                onChange={handleChange('name')}
                 placeholder="Ray Ban" required>
             </OutlinedInput>
             <br /><br />
@@ -53,7 +53,7 @@ const ManufacturerForm = ({ marginLeft, width, values, setValues, setPage, page,
                     background: 'white',
                     boxSizing: 'border-box'
                 }}
-                onChange={handleChange('productCategory')}
+                onChange={handleChange('product_category')}
                 placeholder="Ray Ban" required>
             </OutlinedInput>
             <br /><br />
@@ -82,7 +82,7 @@ const ManufacturerForm = ({ marginLeft, width, values, setValues, setPage, page,
                         +91
                     </InputAdornment>
                 }
-                onChange={handleChange('phone')}
+                onChange={handleChange('number')}
                 inputProps={{ pattern: "[0-9]{10}" }} required>
             </OutlinedInput>
             <br /><br />
@@ -111,7 +111,7 @@ const ManufacturerForm = ({ marginLeft, width, values, setValues, setPage, page,
                     background: 'white',
                     boxSizing: 'border-box'
                 }}
-                onChange={handleChange('legalStatus')}
+                onChange={handleChange('legal_status')}
                 required>
             </OutlinedInput>
             <br /><br />
@@ -123,7 +123,7 @@ const ManufacturerForm = ({ marginLeft, width, values, setValues, setPage, page,
                     background: 'white',
                     boxSizing: 'border-box'
                 }}
-                onChange={handleChange('mainMarkets')}
+                onChange={handleChange('main_markets')}
                 required>
             </OutlinedInput>
             <br /><br />

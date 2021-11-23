@@ -11,11 +11,10 @@ const CreatePost = () => {
     useEffect(()=>{
         async function fun(){
             user_id=await userDetails();
-            user_id=await user_id['data']
-            set_user_id(user_id)
+            set_user_id(user_id['data'])
         }
         fun();
-    },[user_id])
+    },[])
     const handleSubmitPost=async()=>{
         let content_text=post_content_ref.current.value;
         await createPost({

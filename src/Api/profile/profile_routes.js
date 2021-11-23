@@ -3,71 +3,89 @@ const { REACT_APP_API_URL } = require("../../config");
 
 const base = `${REACT_APP_API_URL}/api/profile`;
 
-const axios = createAxios.create({
-  baseURL: base,
-  headers: {
-    Authorization: `Bearer ${localStorage.getItem("JWT")}`
-  }
-});
+function call_for_every_request(){
+  const axios = createAxios.create({
+    baseURL: base,
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("JWT")}`
+    }
+  });
+  return axios;
+}
 
 const getMyProfile = async() => {
     try{
-        const res = axios.get("/getmycompanyprofile")
+      let axios=call_for_every_request();
+        const res = await axios.get("/getmycompanyprofile")
         return res;
     } catch(err){
-        console.log(err)
+        console.log(err);
+        return null;
     }
 }
 
 const getProfileById = async(profileid) => {
   try{
-      const res = axios.get(`/getprofile/${profileid}`)
+      let axios=call_for_every_request();
+      const res = await axios.get(`/getprofile/${profileid}`)
       return res;
   } catch(err){
-      console.log(err)
+      console.log(err);
+      return null;
   }
 }
 
 const joinProfile = async(values) => {
   try{
-      const res = axios.get("/joinprofile", values)
+      let axios=call_for_every_request();
+      const res = await axios.post("/joinprofile", values)
       return res;
   } catch(err){
-      console.log(err)
+      console.log(err);
+      return null;
   }
 }
 
 
 
-const createManu = async(values) => {
+const createManufacturer = async(values) => {
   try{
-      const res = axios.post("/createmanu", values)
-      console.log(res)
+      let axios=call_for_every_request();
+      const res = await axios.post("/createmanu", values)
+      console.log(res);
+      return res;
 
   } catch(err){
-      console.log(err)
+      console.log(err);
+      return null;
   }
 }
 
-const createRetail = async(values) => {
+const createRetailer = async(values) => {
   try{
-      const res = axios.post("/createretailer", values)
+      let axios=call_for_every_request();
+      const res = await axios.post("/createretailer", values)
       console.log(res)
+      return res;
 
   } catch(err){
-      console.log(err)
+      console.log(err);
+      return null;
   }
 }
 
-const createDist = async(values) => {
+const createDistributor = async(values) => {
   try{
-      const res = axios.post("/createdistributor", values)
+    let axios=call_for_every_request();
+      const res = await axios.post("/createdistributor", values)
       console.log(res)
+      return res;
 
   } catch(err){
-      console.log(err)
+      console.log(err);
+      return null;
   }
 }
 
 
-export {getMyProfile, getProfileById, joinProfile, createManu, createRetail, createDist}
+export {getMyProfile, getProfileById, joinProfile, createManufacturer, createRetailer, createDistributor}

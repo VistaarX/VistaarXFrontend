@@ -29,7 +29,7 @@ const RetailerForm = ({ marginLeft, width, values, setValues, setPage, page, use
                     background: 'white',
                     boxSizing: 'border-box'
                 }}
-                onChange={handleChange('shopName')}
+                onChange={handleChange('name')}
                 placeholder="Ray Ban" required>
             </OutlinedInput>
             <br /><br />
@@ -53,7 +53,7 @@ const RetailerForm = ({ marginLeft, width, values, setValues, setPage, page, use
                     background: 'white',
                     boxSizing: 'border-box'
                 }}
-                onChange={handleChange('productCategory')}
+                onChange={handleChange('product_category')}
                 placeholder="Ray Ban" required>
             </OutlinedInput>
             <br /><br />
@@ -70,7 +70,7 @@ const RetailerForm = ({ marginLeft, width, values, setValues, setPage, page, use
                         +91
                     </InputAdornment>
                 }
-                onChange={handleChange('phone')}
+                onChange={handleChange('number')}
                 inputProps={{ pattern: "[0-9]{10}" }} required>
             </OutlinedInput>
             <br /><br />

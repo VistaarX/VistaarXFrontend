@@ -4,8 +4,10 @@ import { Button } from '@mui/material'
 import { Link, Redirect } from 'react-router-dom'
 import JoinExisting from './JoinExisting'
 import axios from 'axios'
-import { handleSignup } from '../../Api/auth'
+import { handleLogin, handleSignup } from '../../Api/auth'
 import '../../stylesheets/Signup.css'
+import { createManufacturer, createRetailer, createDistributor, joinProfile } from '../../Api/profile/profile_routes'
+import {addProduct} from "../../Api/profile/product_routes"
 
 const Signup = () => {
     const userTypes = ['Manufacturer', 'Distributor', 'Retailer']
@@ -17,67 +19,96 @@ const Signup = () => {
 
     const initialValues = {
       signup_values:{
-        name: '',
-        email: '',
-        phone: '',
-        password: '',
+        'name': '',
+        'email': '',
+        'password': '',
+        'phone_num': '',
       },
       gender: 'Male',
       showPassword: false,
       wantTo: wantToOptions[1],
       verificationCode: {
-        code:''
+        'code':''
       },
       userType: userType,
       page4: {
         ManufacturerForm: {
-          companyName: '',
-          productCategory: '',
-          gst: '',
-          turnover: '',
-          phone: '',
-          email: '',
-          trademark: '',
-          legalStatus: '',
-          mainMarkets: '',
-          address: '',
-          about: ''
+          'name': '',
+          'product_category': '',
+          'gst': '',
+          'turnover': '',
+          'number': '',
+          'email': '',
+          'year':'',
+          'trademark': '',
+          'legal_status': '',
+          'main_markets': '',
+          'address': '',
+          'about': '',
+          'logo':'logo image url here'
         }, DistributorForm: {
-          companyName: '',
-          ownerName: '',
-          productCategory: '',
-          gst: '',
-          turnover: '',
-          phone: '',
-          email: '',
-          legalStatus: '',
-          targetAreas: '',
-          address: '',
-          about: ''
+          'name': '',
+          'ownerName': '',
+          'product_category': '',
+          'gst': '',
+          'turnover': '',
+          'number': '',
+          'email': '',
+          'legal_status': '',
+          'area_of_supply': '',
+          'address': '',
+          'about': '',
+          'year':'',
+          'logo':'logo image url here'
         }, RetailerForm: {
-          shopName: '',
-          gst: '',
-          productCategory: '',
-          phone: '',
-          email: '',
-          address: '',
-          about: ''
+          'name': '',
+          'gst': '',
+          'year':'',
+          'turnover': '',
+          'logo':'logo image url here',
+          'product_category': '',
+          'number': '',
+          'email': '',
+          'address': '',
+          'about': '',
+          'legal_status': '',
+          'main_markets': '',
+          'trademark': '',
         }
       },
       page5: {
-        title: '',
-        price: '',
-        images: ''
+        'product_name': '',
+        'price': '',
+        'image': 'image_url_here'
       }
     }
 
     const [values, setValues] = React.useState(initialValues)
 
-    React.useEffect(()=>{
-      setValues({...values, "wantTo": wantTo})
-    }, [wantTo])
+    React.useEffect(()=>{     
+      setValues({...values, "wantTo": wantTo, "userType":userType})
+    }, [wantTo, userType])
   
-  
+    const handleSubmitProfileForm=async ()=>{
+      var res;
+      if(userType==="Manufacturer"){
+        res=await createManufacturer(values.page4.ManufacturerForm);
+      }
+      else if(userType==="Retailer"){
+        res=await createRetailer(values.page4.RetailerForm);
+      }
+      else if(userType==="Distributor"){
+        res=await createDistributor(values.page4.DistributorForm);
+      }
+      else{
+        console.log("No profile selected to proceed further.")
+      }
+      if(res!==null){
+        console.log(`${userType} detailes submitted`);
+        setPage(page+1)
+      }
+    }
+
     const handleClickShowPassword = () => {
       setValues({
         ...values,
@@ -95,25 +126,64 @@ const Signup = () => {
 
     const onSubmit = async (event) => {
         event.preventDefault()
-        // Signup 
-        await handleSignup(values)
-        console.log(values)
-        if(page<5)
-          setPage(page+1)
+        console.log(values.verificationCode)
+        if(page==3){
+          if(wantTo==wantToOptions[0]){
+              let res=await joinProfile(values.verificationCode);
+              if(res!==null){
+                console.log("Joined a profile with code "+values.verificationCode.code);
+                setPage(5);
+                return;
+              }
+              else{
+                console.log(res)
+              }
+          }
+        }
+        if(page<5){
+          if(page==1){
+            let res_value=values.signup_values;
+            console.log(res_value)
+            let res=await handleSignup(res_value)
+            if(res!==null){
+              console.log("Successfully signed up")
+              delete res_value['name'];
+              delete res_value['phone_num'];
+              let log_res=await handleLogin(res_value);
+              if(log_res!==null){
+                console.log("Logged in successfully.")
+                setPage(page+1)
+              }
+            }
+          }
+          if(page==4){
+            await handleSubmitProfileForm();
+          }
+          if(page==2 || page==3){
+            setPage(page+1)
+          }
+        }
         else if (page===5) {
+          let res=await addProduct(values.page5);
+          if(res!==null){
+            console.log("Product details added");
             setPage(1)
             resetValues()
-            return <Redirect to='/add_post'></Redirect>
+          }
         }
       }
 
+    if(page==1 && localStorage.getItem("JWT")!==null){
+      return <Redirect to="/user/employee"></Redirect>
+    }
     if (window.innerWidth<=1024) 
     return (
         <div className='signupBox'>
             <SignupFields marginLeft='5%' width='90%' height='100%' userTypes={userTypes} onSubmit={onSubmit} values={values} 
             setValues={setValues} page={page} setPage={setPage} handleClickShowPassword={handleClickShowPassword}
             handleMouseDownPassword={handleMouseDownPassword} wantToOptions={wantToOptions} setWantTo={setWantTo} wantTo={wantTo}
-            userType={userType} setUserType={setUserType}/>
+            userType={userType} setUserType={setUserType}
+            handleSubmitProfileForm={handleSubmitProfileForm}/>
         </div>
     )
 
@@ -122,7 +192,8 @@ const Signup = () => {
             <SignupFields marginLeft='5%' width='90%' height='100%' userTypes={userTypes} onSubmit={onSubmit} values={values} 
             setValues={setValues} page={page} setPage={setPage} handleClickShowPassword={handleClickShowPassword}
             handleMouseDownPassword={handleMouseDownPassword} wantToOptions={wantToOptions} setWantTo={setWantTo} wantTo={wantTo}
-            userType={userType} setUserType={setUserType} />
+            userType={userType} setUserType={setUserType} 
+            handleSubmitProfileForm={handleSubmitProfileForm}/>
             <br/>
         </div>
     )

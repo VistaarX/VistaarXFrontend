@@ -64,9 +64,9 @@ const Page3 = ({ marginLeft, width, values, setPage, handleClickShowPassword,
         </React.Fragment>
     )
     else return (
-        <form style={{display: 'table-cell', verticalAlign: 'middle', width: '100vw', height: '95vh'}}>
-            <JoinExisting page={page} setPage={setPage} setValues={setValues} values={values}/>
-        </form>
+        <div style={{display: 'table-cell', verticalAlign: 'middle', width: '100vw', height: '95vh'}}>
+            <JoinExisting setValues={setValues} values={values}/>
+        </div>
     )
 }
 

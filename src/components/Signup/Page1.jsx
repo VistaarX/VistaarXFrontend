@@ -75,7 +75,7 @@ const Page1 = ({ marginLeft, width, values, setPage, setValues, handleClickShowP
                         +91
                     </InputAdornment>
                 }
-                onChange={handleChange('phone')}
+                onChange={handleChange('phone_num')}
                 inputProps={{ pattern: "[0-9]{10}" }} required>
             </OutlinedInput>
             <br /><br />

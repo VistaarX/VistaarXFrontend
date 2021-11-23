@@ -5,7 +5,7 @@ import { Button, OutlinedInput } from '@mui/material';
 const page5 = ({values, setValues}) => {
     const handleChange = prop => event => {
         setValues({...values, page5: {
-            ...values.page5, [prop]: event.target.value
+            ...values.page5, [prop]: prop==="image"? "image_url_here" : event.target.value
         }})
     }
 
@@ -24,7 +24,7 @@ const page5 = ({values, setValues}) => {
                     boxSizing: 'border-box'
                 }}
                 required
-                onChange={handleChange('title')}
+                onChange={handleChange('product_name')}
                 placeholder="Ray Ban">
             </OutlinedInput>
             <br /><br />
@@ -45,7 +45,7 @@ const page5 = ({values, setValues}) => {
             <div className="createPost__body">
                 <div className="createPost__container">
                     <div className="content">
-                        <input type="file" className="custom-file-input" onChange={handleChange('images')}/>
+                        <input type="file" className="custom-file-input" onChange={handleChange('image')}/>
                         <p className="text">Photo/Video</p>
                         <p className="dnd">or drag and drop</p>
                     </div>
@@ -57,7 +57,9 @@ const page5 = ({values, setValues}) => {
                         boxSizing: 'border-box',
                         paddingTop: '10px',
                         width: window.innerWidth>1024 ? '40%':'100%'
-                    }}>Submit</button>
+                    }}
+                        type="submit"
+                    >Submit</button>
 
                     <button className="addPost" style={{
                         boxSizing: 'border-box',

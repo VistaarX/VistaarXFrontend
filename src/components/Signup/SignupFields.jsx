@@ -20,7 +20,7 @@ const SignupFields = ({ marginLeft, width, height, userTypes, values, setValues,
     )
     else if (page === 3) return (
       <Page3 values={values} page={page} setValues={setValues}
-        setPage={setPage} userTypes={userTypes} setUserType={setUserType} wantTo={wantTo} wantToOptions={wantToOptions} userType={userType} onSubmit={onSubmit}/>
+        setPage={setPage} userTypes={userTypes} setUserType={setUserType} wantTo={wantTo} wantToOptions={wantToOptions} userType={userType}/>
     )
     else if (page === 4) return (
       <Page4 values={values}

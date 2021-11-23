@@ -1,21 +1,28 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactCodeInput from 'react-verification-code-input';
 import { Button } from '@mui/material';
 import { Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 
-const InputVerificationCode = ({ setPage, setValues, values }) => {
+const InputVerificationCode = ({ setValues, values }) => {
     const [entered, setEntered] = useState(false)
+    const [value, setValue]=useState(null)
 
     const verify = input => {
         setEntered(true)
     }
-
-    const handleChange = () => {
-        setPage(5);
-        setValues({...values, verificationCode: {
-            code :entered
-        }}) 
+    useEffect(()=>{
+        if(entered==true){
+            setValues({...values, verificationCode: {
+                code :parseInt(value)
+            }})
+        }
+    },[entered])
+    const handleChange=(code)=>{
+        setValue(code)
+        if(code.length!=4){
+            setEntered(false)
+        }
     }
 
     const returnEnabledButton = () => {
@@ -32,7 +39,6 @@ const InputVerificationCode = ({ setPage, setValues, values }) => {
             boxSizing: 'border-box',
             paddingTop: '10px'
             }} 
-            onClick={() => handleChange()}
         >
             Next
         </Button>
@@ -65,7 +71,7 @@ const InputVerificationCode = ({ setPage, setValues, values }) => {
         }} fontWeight="300">
             Enter Business Code
         </Typography>
-        <ReactCodeInput onComplete={verify} fields={4} />
+        <ReactCodeInput onComplete={verify} fields={4} onChange={(code)=>handleChange(code)}/>
         <br /><br /><br /><br /><br /><br />
 
         {entered ? returnEnabledButton() : returnDisabledButton()}

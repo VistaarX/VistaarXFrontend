@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 import IconButton from '@mui/material/IconButton';
 import OutlinedInput from '@mui/material/OutlinedInput';
@@ -9,8 +9,10 @@ import axios from 'axios';
 import {handleLogin} from '../../Api/auth'
 import { Lock } from '@material-ui/icons';
 import { Button } from '@mui/material';
+import { Redirect } from 'react-router';
 const LoginFields = ({ marginLeft, width }) => {
-    const [values, setValues] = React.useState({
+  const [redirect, setRedirect]=useState(false)
+    const [values, setValues] = useState({
         email: '',
         password: '',
         showPassword: false,
@@ -26,12 +28,23 @@ const LoginFields = ({ marginLeft, width }) => {
           showPassword: !values.showPassword,
         });
       };
+
+      const handleclick=async ()=>{
+        let res=await handleLogin(values); 
+        if(res!==null){
+          console.log("Succeddful Login");
+          setRedirect(true);
+        }
+      }
     
       const handleMouseDownPassword = (event) => {
         event.preventDefault();
       };
-
       
+    if(redirect==true || localStorage.getItem('JWT')!==null){
+      return <Redirect to="/user/employee"></Redirect>
+    }
+    else{
     return (
       <>
         <div>
@@ -100,7 +113,7 @@ const LoginFields = ({ marginLeft, width }) => {
         </div>
 
         {/* Gave button here to link with login */}
-        <Button onClick={() => handleLogin(values)} style={{
+        <Button onClick={() => handleclick()} style={{
                 background:"#0A66C2",
                 color:'white',
                 textTransform:'none',
@@ -115,6 +128,7 @@ const LoginFields = ({ marginLeft, width }) => {
             </Button>
         </>
     )
+    }
 }
 
 export default LoginFields
