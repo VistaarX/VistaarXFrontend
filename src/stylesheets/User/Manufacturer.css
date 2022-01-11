@@ -1,7 +1,10 @@
 .company{
-    /* background-color: antiquewhite; */
-    margin: 30px 10vw 0;
     background: white;
+    width: 80%;
+    margin: auto;
+    margin-top: 50px;
+    border-radius: 25px;
+
 }
 
 
@@ -15,19 +18,20 @@
 .company__avatar {
     height: 180px;
     width: 180px;
-    border-radius: 100%;
-    background-color: rgb(199, 199, 199);
     position: relative;
     top: 50px;
     margin: auto;
-    box-shadow: 0 8px 6px 0px rgba(54, 54, 54, 0.158);
+}
+
+.company__avatar > img {
+    border-radius: 100%;
 }
 
 .company__detail{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 50px;
+    margin-top: 75px;
 }
 
 .company__designation{
@@ -41,9 +45,11 @@
 
 .progressBar {
     display: flex;
-    justify-content: space-around;
-    width: 100%;
+    width: 75%;
     margin-bottom: 40px;
+    margin: auto;
+    margin-top: 25px;
+    
 }
 
 .progressBar > h4 {
@@ -54,10 +60,132 @@
     background-color: rgb(196, 196, 196);
 }
 
-@media only screen and (max-width: 600px) {
+.company__management {
+    display: flex;
+    justify-content: space-around;
+    width: 75%;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.company__management > .title {
+    margin-bottom: 25px;
+    font-size: 22px;
+}
+
+.company__management > .managerInfo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.company__management > .managerInfo > .avatar > img {
+    margin-right: 25px;
+    border-radius: 100%;
+    width: 140px;
+    border: 3px solid black;
+}
+
+.company__management > .managerInfo {
+    margin-bottom: 50px;
+    
+}
+
+.company__management > .managerInfo > .otherInfo > .name {
+    font-size: 18px;
+}
+
+.company__management > .managerInfo > .otherInfo > .address > span {
+    color: green;
+}
+
+.company__management > .about {
+    margin-bottom: 25px;   
+}
+
+.company__management > .about > .title {
+    margin-bottom: 25px;
+    font-size: 22px;  
+    margin-bottom: 40px;
+    
+}
+
+.company__management > .about > .text {
+    font-style: italic;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: justify;
+    width: 100%;
+}
+
+.company__products {
+    display: flex;
+    width: 75%;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.company__products > .header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.company__products > .container {
+    margin: auto;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    margin-top: 25px;
+}
+
+.company__footer {
+    display: flex;
+    width: 75%;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 50px;
+    border-top: 1px solid black;
+    padding-top: 25px;
+}
+
+.company__footer > .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 75px;
+    margin-bottom: 50px;
+}
+
+.company__footer > .info > h5 {
+    font-weight: bold;
+}
+
+.company__footer > .info > button {
+    background: #F76B1D;
+    border-radius: 15px;
+    padding: 10px;
+    border: #F76B1D;
+    padding-left: 50px;
+    padding-right: 50px;
+    color: white;
+    font-weight: 800;
+    font-size: 18px;
+    letter-spacing: 2px;
+    margin-top: 25px;
+}
+
+@media only screen and (max-width: 900px) {
+    .company{
+        width: 100%;
+        padding: 25px;
+    }
     .progressBar{
         flex-direction: column;
-        /* margin: 20px; */
         align-items: center;
     }
 
@@ -70,5 +198,23 @@
         height: 20px;
     background-color: rgb(196, 196, 196);
         margin-bottom: 20px;
+    }
+
+    .company__products > .container {
+        margin: auto;
+        display: grid;
+        grid-template-columns: auto auto  ;
+        margin-top: 25px;
+    }
+    .company__management > .managerInfo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .company__management {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 }
