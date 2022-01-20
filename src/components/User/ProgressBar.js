@@ -1,11 +1,11 @@
 import React from 'react'
-import "../../../stylesheets/User/Manufacturer.css"
+import "../../stylesheets/User/Manufacturer.css"
 
-const ProgressBar = ({title}) => {
+const ProgressBar = ({title, value}) => {
     return (
         <div className='progressBar'>
             <h4>{title}</h4>
-            <div className='progressBar__rectangle'></div>
+            <div className='progressBar__rectangle'>{value}</div>
         </div>
     )
 }

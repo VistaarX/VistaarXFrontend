@@ -8,11 +8,11 @@ import Navbar from './components/Navbar/Navbar'
 import Employee  from './components/User/Employee/Employee'
 import Catalogue from './components/Catalogue/Catalogue'
 import CreatePost from './components/CreatePost/CreatePost'
-import Manufacturer from './components/User/Manufacturer/Manufacturer'
 import Orders from './components/Orders/Orders'
 import Network from './components/Network/Network'
 import Feed from './components/Feed/Feed'
 import Connections from './components/Connections/Connections'
+import WorkProfile from './components/User/WorkProfile'
 
 
 const App = () => {
@@ -34,7 +34,7 @@ const App = () => {
           <Employee />
         </Route>
         <Route path="/user" exact>
-          <Manufacturer />
+          <WorkProfile />
         </Route>
         <Route path="/catalogue" exact>
           <Catalogue/>

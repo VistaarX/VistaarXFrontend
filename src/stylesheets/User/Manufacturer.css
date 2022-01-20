@@ -37,7 +37,6 @@
 .company__designation{
     max-width: 220px;
     margin: 0 auto;
-    background-color: orange;
     padding: 4px 20px;
     font-weight: bolder;
     color: white;
@@ -58,6 +57,10 @@
 .progressBar__rectangle {
     width: 250px;
     background-color: rgb(196, 196, 196);
+    text-align: center;
+    font-size: 1.5em;
+    color: black;
+    font-weight: bolder;
 }
 
 .company__management {

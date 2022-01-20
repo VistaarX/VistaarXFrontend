@@ -1,15 +1,15 @@
 import React from 'react'
 import '../../stylesheets/LandingPage/ProductCard.css'
 
-const ProductCard = (props) => {
+const ProductCard = ({product_name, price, image, purchase_from}) => {
     return (
         <div className="productCard">
-            <img src="https://picsum.photos/200" alt="" />
-            <div className="title">Red Scarf</div>
-            <div className="price">RS. 1299</div>
+            <img src={image?image:"https://picsum.photos/200"} alt="" />
+            <div className="title">{product_name}</div>
+            <div className="price">RS. {price}</div>
             <div className="seller">
                 <p>Purchased from</p>
-                <div className="name">ABC Handlooms Pvt. Ltd.</div>
+                <div className="name">{purchase_from?purchase_from:"NULL"}</div>
             </div>
         </div>
     )
