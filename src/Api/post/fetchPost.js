@@ -17,7 +17,6 @@ const fetchByID = async(postID) => {
     try{
         let axios=call_for_every_request();
         const res = axios.get(`/${postID}`)
-        console.log(res)
         return res
 
     } catch(err){
@@ -30,7 +29,6 @@ const getFeed = async () => {
     try{
         let axios=call_for_every_request();
         const res = axios.get(`/`)
-        console.log(res)
         return res
 
     } catch(err){

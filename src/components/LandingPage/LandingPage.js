@@ -1,36 +1,45 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import ProductCard from './ProductCard'
 import SuggestionCard from '../Network/suggestions/SuggestionCard'
 import CompanyCard from './CompanyCard'
 import '../../stylesheets/LandingPage/LandingPage.css'
+import { getUserProducts } from '../../Api/profile/product_routes'
+import { getRecommendedUsers } from '../../Api/user/fetchRequests';
+import { Redirect } from 'react-router-dom'
 
 const LandingPage = () => {
+    const [redirect, setRedirect]=useState(false);
+    const [suggestions, setSuggestions] = useState(null);
+    const [products, setProducts] = useState(null);
+    useEffect(async ()=>{
+        if(localStorage.getItem('JWT')===null){
+            setRedirect(true)
+        }
+        if(redirect===false){
+            let connections=await getRecommendedUsers();
+            setSuggestions(connections.data.recommended_users);
+            let products=await getUserProducts();
+            setProducts(products.data);
+        }
+    },[])
     
-
-    const suggestions = [{
-        name: 'Mrinal',
-        connections: '400',
-        company_profile: {
-            name: 'VistaarX',
-        },
-        profile_pic: "https://picsum.photos/200"
-    }, {
-        name: 'Raj',
-        connections: '500',
-        company_profile: {
-            name: 'VistaarX',
-        },
-        profile_pic: "https://picsum.photos/200"
-    }, {
-        name: 'Deepanshu',
-        connections: '600',
-        company_profile: {
-            name: 'VistaarX',
-        },
-        profile_pic: "https://picsum.photos/200"
-    }]
-
-
+    // dummy function to fullfill prop need
+    const onclick=()=>{
+        console.log("click made for connection request")
+    }
+    // repetitive function from Network.jsx
+    const handlePop=(id)=>{
+        let new_suggestion=suggestions.filter((i)=>i._id!=id);
+        setSuggestions(new_suggestion);
+    }
+    
+    // TODO: more specific things are required to make redirect.
+    if(redirect===true){
+        return <Redirect to="/login"></Redirect>
+    }
+    else if(products===null || suggestions===null){
+        return <></>
+    }
     return (
         <div className="landingPage">
             <div className="landingPage__product">
@@ -40,11 +49,9 @@ const LandingPage = () => {
                 </div>
                 <div className="content">
                     <div className="container">
-                        <ProductCard/>
-                        <ProductCard/>
-                        <ProductCard/>
-                        <ProductCard/>
-                        <ProductCard/>
+                    {products.map((product) => {
+                           return <ProductCard {...product} />
+                       })}
                     </div>
                 </div>
             </div>
@@ -56,7 +63,13 @@ const LandingPage = () => {
                 <div className="content">
                     <div className="container">
                        {suggestions.map((suggestion) => {
-                           return <SuggestionCard suggestion={suggestion} />
+                           return (
+                           <SuggestionCard 
+                            onclick={onclick} 
+                            oncancel={()=>handlePop(suggestion._id)} 
+                            suggestion={suggestion} 
+                           />
+                           )
                        })}
                     </div>
                 </div>

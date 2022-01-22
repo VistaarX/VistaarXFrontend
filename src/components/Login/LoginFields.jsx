@@ -32,7 +32,7 @@ const LoginFields = ({ marginLeft, width }) => {
       const handleclick=async ()=>{
         let res=await handleLogin(values); 
         if(res!==null){
-          console.log("Succeddful Login");
+          console.log("Successful Login");
           setRedirect(true);
         }
       }
@@ -42,7 +42,7 @@ const LoginFields = ({ marginLeft, width }) => {
       };
       
     if(redirect==true || localStorage.getItem('JWT')!==null){
-      return <Redirect to="/user/employee"></Redirect>
+      return <Redirect to="/"></Redirect>
     }
     else{
     return (

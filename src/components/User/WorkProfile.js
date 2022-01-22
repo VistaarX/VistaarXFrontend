@@ -32,7 +32,6 @@ const WorkProfile = () => {
   if (profile !== null)
     return (
       <div className="company">
-        {console.log(profile)}
         <div className="company__headBox">
           <div className="company__avatar">
             {/* Add Avatar img here */}

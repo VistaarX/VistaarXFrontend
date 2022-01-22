@@ -1,12 +1,21 @@
 import React,{ useEffect, useState} from 'react'
-import { userDetails } from '../../../Api/user/fetchRequests';
+import { useParams } from 'react-router-dom';
+import { fetchUserByID, userDetails } from '../../../Api/user/fetchRequests';
 import "../../../stylesheets/User/Employee.css"
 import Post from "../Post"
 const Employee = () => {
+    const params=useParams();
     const [user, setUser]=useState(null);
     useEffect(async()=>{
-        let data=await userDetails();
-        setUser(data.data.user);
+        let data, userID=params.id;
+        if(userID!==undefined){
+            data=await fetchUserByID(userID);
+            setUser(data.data)
+        }
+        else{
+            data=await userDetails();
+            setUser(data.data.user);
+        }
     },[]);
     if(user!==null){
     return (

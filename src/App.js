@@ -15,7 +15,7 @@ import Connections from './components/Connections/Connections'
 import WorkProfile from './components/User/WorkProfile'
 
 
-const App = () => {
+const App = (props) => {
   return (
     <div>
       <Router className="App">
@@ -32,6 +32,9 @@ const App = () => {
         </Route>
         <Route path="/user/employee" exact>
           <Employee />
+        </Route>
+        <Route path="/user/employee/:id" exact>
+          <Employee/>
         </Route>
         <Route path="/user" exact>
           <WorkProfile />
