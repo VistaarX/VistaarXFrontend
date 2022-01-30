@@ -5,7 +5,6 @@ import ProfilePic from './profile_pic.png';
 import "../../../stylesheets/NetworkPage/Suggestion.css";
 
 const Suggestion = (props) => {
-
     const connectionRequests=props.received_requests ? props.received_requests:[];
     const deliveredRequests=props.sent_requests ? props.sent_requests:[];
     
@@ -36,7 +35,7 @@ const Suggestion = (props) => {
                                     profile_pic={request.sender.profile_pic ? request.sender.profile_pic : ProfilePic}
                                     decider={props.toggle_state}
                                     request_id={request._id}
-                                    onclick={props.getReceivedRequests}
+                                    onclick={()=>{props.getUpdatedList(); props.handleToggle(true)}}
                                 /></Fragment> )
                             }):null
                             :
@@ -51,7 +50,7 @@ const Suggestion = (props) => {
                                     profile_pic={request.user.profile_pic ? request.user.profile_pic : ProfilePic}
                                     decider={props.toggle_state}
                                     request_id={request.id}
-                                    onclick={props.getSentRequests}
+                                    onclick={()=>{props.getUpdatedList(); props.handleToggle(false)}}
                                 /></Fragment> )
                             }) : null
                         }
@@ -69,8 +68,22 @@ const Suggestion = (props) => {
                 <div className="emplyoees">
                     {
                         props.suggestions.map((suggestion, index) => {
+                            suggestion['button_text']=undefined;
+                            for (let i = 0; i < connectionRequests.length; i++) {
+                                const element = connectionRequests[i]; 
+                                if(element.sender.name===suggestion.name){
+                                    suggestion['button_text']="Request received";
+                                }
+                            }
+                            for (let i = 0; i < deliveredRequests.length; i++) {
+                                const element = deliveredRequests[i]; 
+                                if(element.user.name===suggestion.name){
+                                    suggestion['button_text']="Request sent";
+                                }
+                            }
+                            console.log(suggestion.name, suggestion.button_text)
                             return <Fragment key={index}>
-                                <SuggestionCard suggestion={suggestion} oncancel={()=>props.oncancel(suggestion._id)} onclick={props.getSentRequests}/>
+                                <SuggestionCard suggestion={suggestion} oncancel={()=>props.oncancel(suggestion._id)} onclick={()=>{props.getUpdatedList(); props.handleToggle(false)}}/>
                                 </Fragment>
                         })
                     }

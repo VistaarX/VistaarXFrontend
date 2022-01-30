@@ -1,14 +1,21 @@
 import React from 'react';
+import { Link, Redirect } from 'react-router-dom';
 import { sendConnectionReq } from '../../../Api/user/userActions';
 import "../../../stylesheets/NetworkPage/SuggestionCard.css";
 
 
 const SuggestionCard = (props) => {
-    const handle_send_request=async ()=>{
-        await sendConnectionReq(props.suggestion._id);
-        props.onclick();
-        console.log("Request sent");
+    const handle_send_request=async (button_text)=>{
+        if(button_text===undefined){
+            await sendConnectionReq(props.suggestion._id);
+            props.onclick();
+            console.log("Request sent");
+        }
+        else{
+            console.log("As ",button_text," already, unable to make request")
+        }
     }
+    console.log(props.suggestion.button_text)
     return (
        <div className="suggestionCard">
        <div className="cross" onClick={props.oncancel}>
@@ -16,13 +23,17 @@ const SuggestionCard = (props) => {
        </div>
        <img src={props.suggestion.profile_pic ? props.suggestion.profile_pic : null} alt="" />
        <div className="info">
-           <h1 className="name">{props.suggestion.name}</h1>
-           <h3 className="companyName">{props.suggestion.company_profile ? props.suggestion.company_profile.name : ""}</h3>
+           <Link className="name" to={`/user/employee/${props.suggestion._id}`}>
+            <h1 className="name">{props.suggestion.name}</h1>
+            </Link>
+            <h3 className="companyName">{props.suggestion.company_profile ? props.suggestion.company_profile.name : ""}</h3>
            <div className="connections">
                <h2 className="number">{props.suggestion.connections.length}</h2>
                <p>Connections</p>
            </div>
-           <button onClick={handle_send_request}>Connect</button>
+           <button onClick={()=>handle_send_request(props.suggestion.button_text)}>
+               {props.suggestion.button_text===undefined?"Connect":props.suggestion.button_text}
+            </button>
        </div>
        </div>
     )

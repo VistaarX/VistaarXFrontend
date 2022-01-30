@@ -10,20 +10,8 @@ const Network = () => {
     let [toggle_state, setToggleState]=useState(true);
 
     useEffect(async()=>{
-        getReceivedRequests();
-        let suggestions=await getRecommendedUsers();
-        setSuggestions(suggestions['data'].recommended_users)
+        getUpdatedList();
     },[])
-    const getReceivedRequests= async ()=>{
-        let requests=await fetchIncomingRequest();
-        set_received_requests(requests['data'].connections);
-        handleToggle(true);
-    }
-    const getSentRequests= async ()=>{
-        let requests=await fetchSentRequest();
-        set_sent_requests(requests['data'].connections);
-        handleToggle(false);
-    }
     const handleToggle=(value)=>{
         setToggleState(value)
     }
@@ -31,16 +19,25 @@ const Network = () => {
         let new_suggestion=suggestions.filter((i)=>i._id!=id);
         setSuggestions(new_suggestion);
     }
-
+    const getUpdatedList=async()=>{
+        let requests=await fetchSentRequest();
+        set_sent_requests(requests['data'].connections);
+        requests=await fetchIncomingRequest();
+        set_received_requests(requests['data'].connections);
+        let suggestions=await getRecommendedUsers();
+        let required=suggestions['data'].recommended_users;
+        setSuggestions(required);
+    }
+    console.log(suggestions)
     return <React.Fragment>
-        <MainBody getSentRequests={getSentRequests} getReceivedRequests={getReceivedRequests} toggle_state={toggle_state}/>
+        <MainBody handleToggle={handleToggle} toggle_state={toggle_state}/>
         <Suggestions 
+            handleToggle={handleToggle}
             sent_requests={sent_requests} 
             received_requests={received_requests} 
             suggestions={suggestions} 
             toggle_state={toggle_state} 
-            getSentRequests={getSentRequests} 
-            getReceivedRequests={getReceivedRequests} 
+            getUpdatedList={getUpdatedList}
             oncancel={(id)=>handlePop(id)}/>
     </React.Fragment>
 }

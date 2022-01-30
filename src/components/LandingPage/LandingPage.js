@@ -14,6 +14,7 @@ const LandingPage = () => {
     useEffect(async ()=>{
         if(localStorage.getItem('JWT')===null){
             setRedirect(true)
+            return <Redirect to="/login"></Redirect>
         }
         if(redirect===false){
             let connections=await getRecommendedUsers();
