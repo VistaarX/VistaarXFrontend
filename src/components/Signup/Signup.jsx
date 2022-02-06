@@ -143,7 +143,6 @@ const Signup = () => {
         if(page<5){
           if(page==1){
             let res_value=values.signup_values;
-            console.log(res_value)
             let res=await handleSignup(res_value)
             if(res!==null){
               console.log("Successfully signed up")

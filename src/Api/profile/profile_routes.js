@@ -24,10 +24,23 @@ const getMyProfile = async() => {
     }
 }
 
+// by userID
 const getProfileById = async(profileid) => {
   try{
       let axios=call_for_every_request();
       const res = await axios.get(`/getprofile/${profileid}`)
+      return res;
+  } catch(err){
+      console.log(err);
+      return null;
+  }
+}
+
+// by profileID
+const getCompanyProfile = async(profileid) => {
+  try{
+      let axios=call_for_every_request();
+      const res = await axios.get(`/getcompanyprofile/${profileid}`)
       return res;
   } catch(err){
       console.log(err);
@@ -46,6 +59,16 @@ const joinProfile = async(values) => {
   }
 }
 
+const getAllProfiles=async()=>{
+  try{
+      let axios=call_for_every_request();
+      const res = await axios.get("/getallprofiles")
+      return res;
+  } catch(err){
+      console.log(err);
+      return null;
+  }
+}
 
 
 const createManufacturer = async(values) => {
@@ -88,4 +111,4 @@ const createDistributor = async(values) => {
 }
 
 
-export {getMyProfile, getProfileById, joinProfile, createManufacturer, createRetailer, createDistributor}
+export {getMyProfile, getProfileById, joinProfile, createManufacturer, createRetailer, createDistributor, getAllProfiles, getCompanyProfile}

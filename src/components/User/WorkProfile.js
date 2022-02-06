@@ -1,15 +1,26 @@
 import { useEffect, useState } from "react";
-import { getMyProfile } from "../../Api/profile/profile_routes";
+import { getMyProfile, getCompanyProfile } from "../../Api/profile/profile_routes";
 import "../../stylesheets/User/Manufacturer.css";
 import ProgressBar from "./ProgressBar";
 import ProductCard from "../LandingPage/ProductCard";
 import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const WorkProfile = () => {
   const [profile, setProfile] = useState(null);
+  const params=useParams();
   useEffect(() => {
+    
     async function fun() {
-      let profile = await getMyProfile();
+      let profileID=params.id;
+      let profile;
+      if(profileID!==undefined){
+        profile=await getCompanyProfile(profileID);
+      }
+      else{
+        profile = await getMyProfile();
+      }
+ 
       let response = profile["data"];
       response["manu"] !== undefined
         ? (response = {
@@ -86,16 +97,20 @@ const WorkProfile = () => {
           {profile.owners.map((owner) => {
             return (
               <div className="managerInfo">
+                <Link to={`/user/employee/${owner._id}`} className="avatar">
                 <div className="avatar">
-                  <img
-                    src={
-                      owner.photo ? owner.photo : "https://picsum.photos/200"
-                    }
-                    alt=""
-                  />
+                    <img
+                      src={
+                        owner.photo ? owner.photo : "https://picsum.photos/200"
+                      }
+                      alt=""
+                    />
                 </div>
+                </Link>
                 <div className="otherInfo">
-                  <h4 className="name">{owner.name}</h4>
+                  <Link to={`/user/employee/${owner._id}`} className="name">
+                    <h4 className="name">{owner.name}</h4>
+                  </Link>
                   <h5 className="address">
                     Lives in{" "}
                     <span>{owner.city ? owner.city : "Delhi, India"}</span>

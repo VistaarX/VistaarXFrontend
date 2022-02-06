@@ -17,7 +17,6 @@ const getCommentByID = async (id) => {
     try{
         let axios=call_for_every_request();
         const res = await axios.get(`/comment/${id}/like_dislike`)
-        console.log(res)
         return res
     } catch (err){
         console.log(err);
@@ -29,7 +28,6 @@ const getCommentByPostID = async (id) => {
     try{
         let axios=call_for_every_request();
         const res = await axios.get(`/${id}/comment`)
-        console.log(res)
         return res
     } catch (err){
         console.log(err);
@@ -41,7 +39,6 @@ const makeCommentToPostID = async (id, values) => {
     try{
         let axios=call_for_every_request();
         const res = await axios.post(`/${id}/comment`, values)
-        console.log(res)
         return res
     } catch (err){
         console.log(err);

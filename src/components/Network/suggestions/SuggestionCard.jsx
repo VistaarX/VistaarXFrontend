@@ -15,7 +15,6 @@ const SuggestionCard = (props) => {
             console.log("As ",button_text," already, unable to make request")
         }
     }
-    console.log(props.suggestion.button_text)
     return (
        <div className="suggestionCard">
        <div className="cross" onClick={props.oncancel}>

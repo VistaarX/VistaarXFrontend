@@ -6,11 +6,13 @@ import '../../stylesheets/LandingPage/LandingPage.css'
 import { getUserProducts } from '../../Api/profile/product_routes'
 import { getRecommendedUsers } from '../../Api/user/fetchRequests';
 import { Redirect } from 'react-router-dom'
+import { getAllProfiles } from '../../Api/profile/profile_routes'
 
 const LandingPage = () => {
     const [redirect, setRedirect]=useState(false);
     const [suggestions, setSuggestions] = useState(null);
     const [products, setProducts] = useState(null);
+    const [companies, setCompanies]=useState(null);
     useEffect(async ()=>{
         if(localStorage.getItem('JWT')===null){
             setRedirect(true)
@@ -21,6 +23,8 @@ const LandingPage = () => {
             setSuggestions(connections.data.recommended_users);
             let products=await getUserProducts();
             setProducts(products.data);
+            let companies=await getAllProfiles();
+            setCompanies(companies.data);
         }
     },[])
     
@@ -33,12 +37,14 @@ const LandingPage = () => {
         let new_suggestion=suggestions.filter((i)=>i._id!=id);
         setSuggestions(new_suggestion);
     }
+
+    
     
     // TODO: more specific things are required to make redirect.
     if(redirect===true){
         return <Redirect to="/login"></Redirect>
     }
-    else if(products===null || suggestions===null){
+    else if(products===null || suggestions===null || companies===null){
         return <></>
     }
     return (
@@ -82,11 +88,9 @@ const LandingPage = () => {
                 </div>
                        <div className="content">
                            <div className="container">
-                               <CompanyCard/>
-                               <CompanyCard/>
-                               <CompanyCard/>
-                               <CompanyCard/>
-                               <CompanyCard/>
+                               {companies.map((company)=>{
+                                   return <CompanyCard company={company}/>
+                               })}
                            </div>
                        </div>
             </div>

@@ -39,6 +39,9 @@ const App = (props) => {
         <Route path="/user" exact>
           <WorkProfile />
         </Route>
+        <Route path="/user/:id" exact>
+          <WorkProfile />
+        </Route>
         <Route path="/catalogue" exact>
           <Catalogue/>
         </Route>

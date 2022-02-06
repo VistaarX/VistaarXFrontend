@@ -4,14 +4,19 @@ import Cancel from '@mui/icons-material/Cancel';
 import { Avatar } from '@mui/material';
 import { userDetails } from '../../Api/user/fetchRequests';
 import { createPost } from '../../Api/post/postActions';
+import { Redirect } from 'react-router-dom';
 
 const CreatePost = () => {
     let [user_id, set_user_id]=useState(null)
     let post_content_ref=useRef(null);
+    let [redirect, setRedirect]=useState(false);
     useEffect(()=>{
         async function fun(){
             user_id=await userDetails();
-            set_user_id(user_id['data'])
+            if(user_id===null)
+                setRedirect(true);
+            else
+                set_user_id(user_id['data'])
         }
         fun();
     },[])
@@ -27,6 +32,9 @@ const CreatePost = () => {
     const autoresize=(e)=>{
         e.target.style.height="auto";
         e.target.style.height = e.target.scrollHeight + 'px';
+    }
+    if(redirect===true){
+        return <Redirect to={'/login'}></Redirect>
     }
     return (
         <div className="createPost">

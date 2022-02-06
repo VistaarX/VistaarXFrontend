@@ -17,7 +17,6 @@ const createPost = async(values) => {
     try{
         let axios=call_for_every_request();
         const res = await axios.post("/", values)
-        console.log(res)
         return res;
     } catch (err) {
         console.log(err);
@@ -29,7 +28,6 @@ const likeDislike = async(id) => {
     try{
         let axios=call_for_every_request();
         const res = await axios.get(`/${id}/like_dislike`)
-        console.log(res)
         return res
     } catch (err) {
         console.log(err);

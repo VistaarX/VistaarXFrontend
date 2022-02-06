@@ -83,7 +83,7 @@
     align-items: center;
 }
 
-.company__management > .managerInfo > .avatar > img {
+.company__management > .managerInfo > .avatar img {
     margin-right: 25px;
     border-radius: 100%;
     width: 140px;
@@ -95,8 +95,9 @@
     
 }
 
-.company__management > .managerInfo > .otherInfo > .name {
+.company__management > .managerInfo > .otherInfo .name {
     font-size: 18px;
+    color: black;
 }
 
 .company__management > .managerInfo > .otherInfo > .address > span {

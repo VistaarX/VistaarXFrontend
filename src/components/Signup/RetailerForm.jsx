@@ -58,6 +58,42 @@ const RetailerForm = ({ marginLeft, width, values, setValues, setPage, page, use
             </OutlinedInput>
             <br /><br />
 
+            <p>Annual Turnover</p>
+            <OutlinedInput
+                style={{
+                    width: '100%',
+                    background: 'white',
+                    boxSizing: 'border-box'
+                }}
+                onChange={handleChange('turnover')}
+                placeholder="Rs. 1.87 Cr" required>
+            </OutlinedInput>
+            <br /><br />
+
+            <p>Trademark</p>
+            <OutlinedInput
+                style={{
+                    width: '100%',
+                    background: 'white',
+                    boxSizing: 'border-box'
+                }}
+                onChange={handleChange('trademark')}
+                placeholder="1234567890" required>
+            </OutlinedInput>
+            <br /><br />
+
+            <p>Legal Status</p>
+            <OutlinedInput
+                style={{
+                    width: '100%',
+                    background: 'white',
+                    boxSizing: 'border-box'
+                }}
+                onChange={handleChange('legal_status')}
+                required>
+            </OutlinedInput>
+            <br /><br />
+
             <p>Phone Number</p>
             <OutlinedInput
                 style={{
