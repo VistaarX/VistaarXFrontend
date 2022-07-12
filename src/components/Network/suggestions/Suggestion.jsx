@@ -29,12 +29,12 @@ const Suggestion = (props) => {
                             connectionRequests.map((request, index) =>{
                                 return (
                                 <Fragment key={index}><ConnectionCard 
-                                    name={request.sender.name} 
-                                    connections_length={request.sender.connections.length} 
-                                    company_name={request.sender.company_profile ? request.sender.company_profile.name : ""}
-                                    profile_pic={request.sender.profile_pic ? request.sender.profile_pic : ProfilePic}
+                                    name={request.user.name} 
+                                    connections_length={request.user.connections.length} 
+                                    company_name={request.user.company_profile ? request.user.company_profile.name : ""}
+                                    profile_pic={request.user.profile_pic ? request.user.profile_pic : ProfilePic}
                                     decider={props.toggle_state}
-                                    request_id={request._id}
+                                    request_id={request.id}
                                     onclick={()=>{props.getUpdatedList(); props.handleToggle(true)}}
                                 /></Fragment> )
                             }):null
@@ -71,7 +71,7 @@ const Suggestion = (props) => {
                             suggestion['button_text']=undefined;
                             for (let i = 0; i < connectionRequests.length; i++) {
                                 const element = connectionRequests[i]; 
-                                if(element.sender.name===suggestion.name){
+                                if(element.user.name===suggestion.name){
                                     suggestion['button_text']="Request received";
                                 }
                             }
